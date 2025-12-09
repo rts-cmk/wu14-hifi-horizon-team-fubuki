@@ -1,0 +1,135 @@
+[
+	{
+		"id": 1,
+		"price": 469,
+		"delivery": 0,
+		"discount": 8.53,
+		"brand": "Marantz",
+		"categorie": "AMPLIFIERS",
+		"images": [
+			"something1.jpg",
+			"something2.jpg"
+		],
+		"name": "MARANTZ PM6006 UK EDITION INTERGRATED AMPLIFIER",
+		"description": "The PM6006 is an upgraded successor of the multi-award-winning PM6005. Marantz retained the pre-amp and power-amp sections that exclusively feature discrete components - not a single IC in sight of the signal path. The PM6006 is upgraded for peak current at the amplifier stage, which makes it possible to refine the sound for you in much more detail.",
+		"fields": [
+			{
+				"type": "color",
+				"required": true,
+				"list": [
+					"Black",
+					"Silver"
+				]
+			}
+		],
+		"payments": [
+			"paypal"
+		],
+		"info": [
+			{
+				"url": null,
+				"title": "manufacturer",
+				"value": "Marantz"
+			},
+			{
+				"url": "https://www.marantz.com",
+				"title": "manufacturer link",
+				"value": "Marantz PM6006"
+			},
+			{
+				"url": null,
+				"title": "free warranty",
+				"value": "3 years"
+			},
+			{
+				"url": null,
+				"title": "delivery charge",
+				"value": "Free"
+			},
+			{
+				"url": null,
+				"title": "delivery time",
+				"value": "1 - 5 Working Days"
+			},
+			{
+				"url": null,
+				"title": "card surcharges",
+				"value": "No"
+			}
+		],
+		"information": [
+			{
+				"extra": false,
+				"title": "Power Output (8 / 4 Ohm RMS)",
+				"value": "45 W / 60 W",
+				"second": "10 Hz"
+			},
+			{
+				"extra": true,
+				"title": "Frequency Response",
+				"value": "",
+				"second": "70 kHz"
+			},
+			{
+				"extra": false,
+				"title": "Total Harmonic Distortion",
+				"value": "0.08%",
+				"second": ""
+			},
+			{
+				"extra": false,
+				"title": "Damping Factor",
+				"value": "100",
+				"second": ""
+			},
+			{
+				"extra": false,
+				"title": "Input Sensitivity: MM",
+				"value": "2.2 mV / 47 kOhm",
+				"second": ""
+			},
+			{
+				"extra": true,
+				"title": "Input Sensitivity: MC",
+				"value": "",
+				"second": ""
+			},
+			{
+				"extra": true,
+				"title": "Signal to Noise Ratio: MM / MC",
+				"value": "83 dB /",
+				"second": ""
+			},
+			{
+				"extra": false,
+				"title": "Input Sensitivity: High level",
+				"value": "200 mV / 20 kOhm",
+				"second": ""
+			},
+			{
+				"extra": true,
+				"title": "Input Sensitivity: Balanced High level",
+				"value": "",
+				"second": ""
+			},
+			{
+				"extra": false,
+				"title": "Signal to Noise Ratio: High level",
+				"value": "102dB(2V input)",
+				"second": ""
+			},
+			{
+				"extra": true,
+				"title": "Input Sensitivity: Power Amp Direct IN",
+				"value": "",
+				"second": ""
+			},
+			{
+				"extra": true,
+				"title": "Signal to Noise Ratio: Power Amp Direct IN",
+				"value": "",
+				"second": ""
+			}
+		]
+	}
+]
