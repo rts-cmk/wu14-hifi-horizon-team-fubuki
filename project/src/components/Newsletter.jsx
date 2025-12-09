@@ -3,9 +3,11 @@ export default function NewsLetter() {
 	return (
 		<section className="newsletter-section">
 			<h2 className="newsletter-section__title">
-
+				SIGN UP FOR OUR NEWSLETTER
 			</h2>
-			<p className="newsletter-section__text"></p>
+			<p className="newsletter-section__text">
+				Subscribing to our newsletter secures you up to date information about HiFi Horizons latest updates and offers.
+			</p>
 
 			<form action="/" className="newsletter-section__form">
 				<input type="email" name="email" placeholder="youremail@here.com"
