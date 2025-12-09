@@ -6,17 +6,17 @@ Dette projekt er en simpel **REST API** bygget med **Node.js** og **Express**, d
 
 API’et giver mulighed for at:
 
-- Hente alle produkter
-- Hente alle kategorier
-- Hente ét produkt via ID
-- Kontrollere om serveren kører
+- Hente alle produkter            ("/api/products")
+- Hente alle kategorier           ("/api/categories")
+- Hente ét produkt via ID         ("/api/product/:id")
+- Kontrollere om serveren kører   ("/api")
 
 ---
 
 ## 📂 Hjælpefunktioner
 
-- saveData() / lavet til fremtidig brug
-- loadData()
+- saveData (lavet til fremtidig brug)
+- loadData (bruges aktivt)
 
 ---
 
