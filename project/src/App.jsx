@@ -1,10 +1,10 @@
 import AboutUs from './pages/AboutUs'
-import Blog from './pages/Blog'
-import Brands from './pages/Brands'
+import Blog from './pages/Cart'
+import Brands from './pages/ProductComparison'
 import ContactUs from './pages/ContactUs'
-import Events from './pages/Events'
+import Events from './pages/ProductDetails'
 import Home from './pages/Home'
-import Shop from './pages/Shop'
+import Shop from './pages/Product'
 
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router'
