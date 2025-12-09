@@ -63,7 +63,7 @@ SERVER.get("/api/product/:id", (request, response) => {
 	const idParam = request.params.id
 	const recivedData = loadData()
 
-	if (recivedData.find((product) => product.id != Number(idParam))) {
+	if (!recivedData.find((product) => product.id == Number(idParam))) {
 		response.status(404).json({
 			success: false,
 			message: "could not find the product from data"
