@@ -1,6 +1,6 @@
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa"
 import { GiSettingsKnobs } from "react-icons/gi"
-import { useLoaderData } from "react-router"
+import { Link, useLoaderData } from "react-router"
 import { useState } from "react"
 
 export default function ProductDetails() {
@@ -10,11 +10,19 @@ export default function ProductDetails() {
 	const productData = useLoaderData()
 
 	function lastImage() {
-
+		if (image <= 0) {
+			setImage(productData.images.length - 1)
+		} else {
+			setImage(image - 1)
+		}
 	}
 
 	function nextImage() {
-
+		if (image >= productData.images.length - 1) {
+			setImage(0)
+		} else {
+			setImage(image + 1)
+		}
 	}
 
 	function removeAmount() {
@@ -29,15 +37,14 @@ export default function ProductDetails() {
 
 	return (
 		<main className="product-content">
-			{console.log(productData)}
 			<h2 className="product-content__title">
 				PRODUCT
 			</h2>
 
-			<button className="product-content__button-compare">
+			<Link to={`/compare/${productData.id}`} className="product-content__button-compare">
 				Compare
 				<GiSettingsKnobs className="product-content__button-icon" />
-			</button>
+			</Link>
 
 			<div className="product-content__holder">
 				<figure className="product-content__image-holder">
