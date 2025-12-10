@@ -1,7 +1,7 @@
 import { FaSearch } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 import Logo from "../assets/icons/logo.svg?react";
 
 export default function Header() {
@@ -13,9 +13,9 @@ export default function Header() {
         </Link>
         <nav className="header__nav">
           <ul className="header__ul">
-            <li className="header__li"><Link to="/products">SHOP</Link></li>
-            <li className="header__li"><Link to="/about">ABOUT US</Link></li>
-            <li className="header__li"><Link to="/contact">CONTACT</Link></li>
+            <li className="header__li"><NavLink to="/products" >SHOP</NavLink></li>
+            <li className="header__li"><NavLink to="/about"  >ABOUT US</NavLink></li>
+            <li className="header__li"><NavLink to="/contact"  >CONTACT US</NavLink></li>
           </ul>
         </nav>
       </div>
@@ -24,8 +24,8 @@ export default function Header() {
           <input className="header__input-search" type="text" name="search" placeholder="Search product..." required />
           <button className="header__btn-search"><FaSearch className="header__icon-search" /></button>
         </form>
-        <Link to="/profile" className="header__link-profile"><FaUser className="header__icon-profile" /></Link>
-        <Link to="/cart/orders" className="header__link-add-to-cart"><FaCartShopping className="header__icon-add-to-cart" /><div className="header__div-add-to-cart">1</div></Link>
+        <NavLink to="/profile" className={({ isActive }) => "header__link-profile" + (isActive ? " active-svg" : "")} ><FaUser className="header__icon-profile" /></NavLink>
+        <NavLink to="/cart/orders" className={({ isActive }) => "header__link-add-to-cart" + (isActive ? " active-svg" : "")}><FaCartShopping className="header__icon-add-to-cart" /><div className="header__div-add-to-cart">1</div></NavLink>
       </div>
     </header>
   )
