@@ -6,12 +6,14 @@ export default function Popular() {
 	return (
 		<section className="popular-section">
 			<h2 className="popular-section__title">
-				POPULAR PRODUCTS
-			</h2>
+				<span>
+					POPULAR PRODUCTS
+				</span>
 
-			<button className="popular-section__button">
-				See all products
-			</button>
+				<Link to={"/products"} className="popular-section__button">
+					See all products
+				</Link>
+			</h2>
 
 			<ul className="popular-section__products">
 				{
