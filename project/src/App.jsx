@@ -14,6 +14,7 @@ import Login from './pages/Login.jsx'
 import Error from './pages/Error.jsx'
 import Home from './pages/Home.jsx'
 import Cart from './pages/Cart.jsx'
+import productLoader from './helpers/productLoader.js'
 
 function App() {
 
@@ -34,7 +35,9 @@ function App() {
 					element: <Product />
 				},
 				{
+					id: "product",
 					path: "/details/:product",
+					loader: productLoader,
 					element: <ProductDetails />
 				},
 				{
