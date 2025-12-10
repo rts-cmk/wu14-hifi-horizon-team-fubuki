@@ -6,10 +6,11 @@ Dette projekt er en simpel **REST API** bygget med **Node.js** og **Express**, d
 
 API’et giver mulighed for at:
 
-- Hente alle produkter            ("/api/products")
-- Hente alle kategorier           ("/api/categories")
-- Hente ét produkt via ID         ("/api/product/:id")
-- Kontrollere om serveren kører   ("/api")
+- Hente populære produkter        "/api/popular"
+- Hente alle produkter            "/api/products"
+- Hente alle kategorier           "/api/categories"
+- Hente ét produkt via ID         "/api/product/:id"
+- Kontrollere om serveren kører   "/api"
 
 ---
 
@@ -23,7 +24,7 @@ API’et giver mulighed for at:
 ## 🗂 Projektstruktur
 
 ```bash
-project-root/
+server-project-root/
 │
 ├─ jsons/
 │  ├─ products.json
