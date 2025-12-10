@@ -1,7 +1,13 @@
+import NewsLetter from "../components/Newsletter";
+import Popular from "../components/Popular";
+
 export default function Home() {
-  return (
-    <div>
-      <h1>Home Page</h1>
-    </div>
-  )
+	return (
+		<main className="main-content">
+
+			<Popular />
+
+			<NewsLetter />
+		</main>
+	)
 }
