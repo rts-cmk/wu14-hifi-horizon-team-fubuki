@@ -1,6 +1,8 @@
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import ProductComparison from './pages/ProductComparison.jsx'
 import ProductDetails from './pages/ProductDetails.jsx'
+import productLoader from './helpers/productLoader.js'
+import popularLoader from './helpers/popularLoader.js'
 import dataLoader from './helpers/dataLoader.js'
 import ContactUs from './pages/ContactUs.jsx'
 import MoreInfo from './pages/MoreInfo.jsx'
@@ -14,7 +16,6 @@ import Login from './pages/Login.jsx'
 import Error from './pages/Error.jsx'
 import Home from './pages/Home.jsx'
 import Cart from './pages/Cart.jsx'
-import productLoader from './helpers/productLoader.js'
 
 function App() {
 
@@ -27,7 +28,9 @@ function App() {
 			errorElement: <Error />,
 			children: [
 				{
+					id: "popular",
 					path: "/",
+					loader: popularLoader,
 					element: <Home />
 				},
 				{
