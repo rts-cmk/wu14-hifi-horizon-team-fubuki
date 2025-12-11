@@ -1,0 +1,76 @@
+// STYLING FOR TERMS COMPONENT
+@use "./_variables.sass" as var
+
+.content-terms
+	border: none
+	display: flex
+	width: 100dvw
+	height: 100dvh
+	position: fixed
+	background: #00000025
+
+	&__button
+		border: none
+		width: 151px
+		padding: 25px
+		cursor: pointer
+		font-weight: bold
+
+		&.show-btn
+			width: 100%
+			padding: 5px
+			font-size: 12px
+			margin-top: 25px
+
+		&s
+			display: flex
+			margin-top: 25px
+			justify-content: space-between
+
+		&.orange
+			color: var.$primary-white-color
+			background: var.$primary-orange-color
+
+			&:hover
+				background: #d15700
+
+	&__holder
+		width: 55dvw
+		margin: auto
+		display: flex
+		padding: 25px
+		min-width: 300px
+		max-width: 750px
+		max-height: 90dvh
+		border-radius: 10px
+		flex-direction: column
+		overflow: hidden scroll
+		transition: height 0.3s
+		background: var.$primary-white-color
+
+	&__date
+		font-size: 12px
+		font-style: italic
+
+	&__section
+		margin-top: 25px
+
+		&-desc
+			font-size: 15px
+
+	&__desc
+		font-size: 15px
+
+	&__title
+		font-size: 30px
+
+		& svg
+			color: var.$primary-orange-color
+
+	& ol
+		width: 75%
+		list-style-type: disc
+		transform: translateX(50px)
+
+.bold
+	font-weight: bold
