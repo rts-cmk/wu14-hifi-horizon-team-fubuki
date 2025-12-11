@@ -1,7 +1,9 @@
+import ProductCategories from "../components/ProductCategories";
+
 export default function Product() {
   return (
-    <div>
-      <h1>Product Page</h1>
-    </div>
+    <main className="main-content">
+      <ProductCategories />
+    </main>
   )
 }

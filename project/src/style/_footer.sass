@@ -1,0 +1,59 @@
+@use "variables" as var
+    
+.footer
+    padding: 3rem 2rem
+    width: 100%
+    background-color: var.$background-black-color
+    color: var.$primary-font-white-color
+
+    &__nav
+        display: flex
+        flex-wrap: wrap
+        gap: 4rem
+        justify-content: space-around
+        border-bottom: 1px solid var.$primary-font-white-color
+        padding-bottom: 1rem
+
+
+    &__div-links
+        display: flex
+        flex-direction: column
+        gap: 0.5rem
+
+    &__a-contact
+        display: flex
+        gap: 1rem
+
+    &__svg-contact
+        font-size: 1.5rem
+
+    &__span-adress, &__a-contact
+        font-size: 0.9rem
+        font-weight: 700
+
+    &__div-social-media
+        font-size: 2rem
+        display: flex
+        gap: 0.3rem
+
+    &__div-svgs
+        display: flex
+        gap: 1rem
+        font-size: 2.5rem
+        padding: 1rem 0 0 3rem
+
+    &__div-last-p
+        display: flex
+        flex-wrap: wrap
+        gap: 20%
+        font-size: 8px
+        padding: 0 0 0 3rem
+
+@media screen and (max-width: 768px)
+    .footer
+        &__div-last-p
+            gap: 0.5rem
+            padding: 0 0 0 0.5rem
+
+        &__div-svgs
+            padding: 1rem 0 0 0.5rem
