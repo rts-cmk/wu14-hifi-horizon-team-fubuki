@@ -1,7 +1,7 @@
 import { Link, useRouteLoaderData } from "react-router"
 
 export default function Popular() {
-	const popularData = useRouteLoaderData("root")
+	const popularData = useRouteLoaderData("popular")
 
 	return (
 		<section className="popular-section">
@@ -17,7 +17,7 @@ export default function Popular() {
 
 			<ul className="popular-section__products">
 				{
-					popularData.map((product) => {
+					popularData.result.map((product) => {
 						return <li key={`popular-product-${product.name}`}
 							className="popular-section__product">
 							<figure className="popular-section__product-image-holder">
