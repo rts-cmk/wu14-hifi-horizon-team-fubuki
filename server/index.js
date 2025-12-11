@@ -59,6 +59,24 @@ SERVER.get("/api/products", (request, response) => {
 	})
 })
 
+SERVER.get("/api/popular", (request, response) => {
+	const popularData = loadData("popular")
+	const recivedData = loadData()
+	let popularList = []
+
+	recivedData.forEach(product => {
+		if (popularData.find(id => id == product.id)) {
+			popularList.push(product)
+		}
+	});
+
+	response.status(200).json({
+		success: true,
+		message: "here is the list of popular products",
+		result: popularList
+	})
+})
+
 SERVER.get("/api/product/:id", (request, response) => {
 	const idParam = request.params.id
 	const recivedData = loadData()
