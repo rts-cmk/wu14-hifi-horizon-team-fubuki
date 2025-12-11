@@ -1,7 +1,9 @@
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa"
-import { GiSettingsKnobs } from "react-icons/gi"
+import { IoMdRemove, IoMdAdd } from "react-icons/io"
 import { Link, useLoaderData } from "react-router"
+import { GiSettingsKnobs } from "react-icons/gi"
 import { useState } from "react"
+
 
 export default function ProductDetails() {
 	const [amount, setAmount] = useState(1)
@@ -28,6 +30,8 @@ export default function ProductDetails() {
 	function removeAmount() {
 		if (amount >= 2) {
 			setAmount(amount - 1)
+		} else if (amount <= 1) {
+			setAmount(99)
 		}
 	}
 
@@ -64,7 +68,8 @@ export default function ProductDetails() {
 								productData.images.map((elm, idx) => {
 									return (
 										<button onClick={() => setImage(idx)} key={`small-button-${idx}`}
-											className="product-content__image-button-small"></button>
+											className={`product-content__image-button-small ${(image === idx ? "active" : "")}`}>
+										</button>
 									)
 								})
 							}
@@ -79,8 +84,9 @@ export default function ProductDetails() {
 					<ol className="product-content__colors">
 						{
 							productData.fields.find(field => field.type == "color")?.list.map((colorField, idx) => {
-								return <li key={colorField} className="product-content__color">
-									<div className="product-content__color-design">
+								return <li key={colorField} className={`product-content__color ${(color === idx ? "active" : "")}`}
+									onClick={() => setColor(idx)}>
+									<div className={`product-content__color-design ${colorField.toLowerCase()}`}>
 										<div>
 
 										</div>
@@ -98,22 +104,22 @@ export default function ProductDetails() {
 								* productData.discount)) * amount).toFixed(2)}
 						</span>
 
-						<span className="product-content__info-stock">
-							{(productData.status && "In stock" || "No stock")}
+						<span className={`product-content__info-stock ${(productData.status != 0 ? "stock" : "")}`}>
+							{(productData.status != 0 ? "In stock" : "Out of stock")}
 						</span>
 					</p>
 
 					<div className="product-content__buttons-holder">
 						<div className="product-content__amounts">
 							<button onClick={() => removeAmount()}
-								className="product-content__amount-button">-</button>
-							<p className="product-content__amount">{amount}</p>
-							<button onClick={() => setAmount(amount + 1)}
-								className="product-content__amount-button">+</button>
+								className="product-content__amount-button"><IoMdRemove /></button>
+							<p className="product-content__amount">{(productData.status != 0 ? amount : 0)}</p>
+							<button onClick={() => { (amount >= 99 ? setAmount(1) : setAmount(amount + 1)) }}
+								className="product-content__amount-button"><IoMdAdd /></button>
 						</div>
 
 						<button onClick={() => addToCart()}
-							className="product-content__button-order">Add to cart</button>
+							className={`product-content__button-order ${(productData.status != 0 ? "stock" : "")}`}>Add to cart</button>
 					</div>
 				</section>
 			</div>
@@ -121,7 +127,12 @@ export default function ProductDetails() {
 			<div className="product-content__line">
 			</div>
 
+			<h2 className="product-content__specs-title">
+				PRODUCT SPECIFICATIONS
+			</h2>
+
 			<ol className="product-content__specs">
+				<li className="product-content__specs-line"></li>
 				{
 					productData.information.map((detail, idx) => {
 						return <li key={detail.title}
@@ -132,7 +143,6 @@ export default function ProductDetails() {
 							<p>
 								{detail.value} {detail.second}
 							</p>
-
 						</li>
 					})
 				}
