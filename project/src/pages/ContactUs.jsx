@@ -6,22 +6,22 @@ export default function ContactUs() {
 			</h2>
 
 			<form action="#" className="contact-content__form">
-				<label for="name"
+				<label htmlFor="name"
 					className="contact-content__form-text">Full name <span className="req">*</span></label>
 				<input type="text" name="name" placeholder="John Doe" required
 					className="contact-content__form-input"></input>
 
-				<label for="email"
+				<label htmlFor="email"
 					className="contact-content__form-text">Email <span className="req">*</span></label>
 				<input type="email" name="email" placeholder="youremail@here.com" required
 					className="contact-content__form-input"></input>
 
-				<label for="subject"
+				<label htmlFor="subject"
 					className="contact-content__form-text">Subject <span className="req">*</span></label>
 				<input type="text" name="subject" placeholder="Whats this about?" required
 					className="contact-content__form-input"></input>
 
-				<label for="message"
+				<label htmlFor="message"
 					className="contact-content__form-text">Message <span className="req">*</span></label>
 				<textarea name="message"
 					placeholder="Enter your message here..." required

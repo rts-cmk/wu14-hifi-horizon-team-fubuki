@@ -3,12 +3,14 @@ import { useEffect, useState } from "react"
 import "../style/_terms.sass"
 
 export default function Terms() {
-	const [cookiesAllowed, setCookiesAllowed] = useState(null)
+	const [cookiesAllowed, setCookiesAllowed] = useState(false)
 	const [showned, setShowned] = useState(false)
 
 	useEffect(() => {
 		if (document.cookie != "") {
 			setCookiesAllowed(true)
+		} else {
+			setCookiesAllowed(null)
 		}
 	}, [])
 
