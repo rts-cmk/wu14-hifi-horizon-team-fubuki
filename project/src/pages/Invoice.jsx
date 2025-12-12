@@ -1,7 +1,9 @@
+import PaymentProgress from "../components/PaymentProgress";
+
 export default function Invoice() {
-  return (
-    <div>
-      <h1>Invoce Page</h1>
-    </div>
-  )
+	return (
+		<main className="cart-content">
+			<PaymentProgress currentStep={3} />
+		</main>
+	)
 }

@@ -1,7 +1,9 @@
+import PaymentProgress from "../components/PaymentProgress";
+
 export default function Cart() {
-  return (
-    <div>
-      <h1>Cart Page</h1>
-    </div>
-  )
+	return (
+		<main className="cart-content">
+			<PaymentProgress />
+		</main>
+	)
 }
