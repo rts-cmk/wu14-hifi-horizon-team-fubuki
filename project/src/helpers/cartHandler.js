@@ -20,7 +20,7 @@ export function RetrieveCartItems() {
 	}
 }
 
-export function HandleCardItems(itemID = 0, quantity = 0, price = 0) {
+export function HandleCardItems(itemID = 0, quantity = 0, price = 0, color = "default") {
 	let cartItems = document.cookie.split(";")[1].split("=")[1].split(",")
 	let newCartItems = []
 
@@ -39,7 +39,7 @@ export function HandleCardItems(itemID = 0, quantity = 0, price = 0) {
 	})
 
 	if (!newCartItems.find(item => item.split("-")[0] == itemID)) {
-		newCartItems.push(`${itemID}-${quantity}-${price}`)
+		newCartItems.push(`${itemID}-${quantity}-${price}-${color}`)
 	}
 
 	newCartItems.forEach((item, index) => {
