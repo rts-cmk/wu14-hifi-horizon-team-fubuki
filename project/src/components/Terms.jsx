@@ -19,8 +19,8 @@ export default function Terms() {
 	}
 
 	function allowCookies() {
-		document.cookie = "cookies=true"
-		document.cookie = "cart=null"
+		document.cookie = "cookies=true; path=/"
+		document.cookie = "cart=null; path=/"
 		setCookiesAllowed(true)
 	}
 

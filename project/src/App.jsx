@@ -21,9 +21,7 @@ function App() {
 
 	const browserRouter = createBrowserRouter([
 		{
-			id: "root",
 			element: <Layout />,
-			loader: dataLoader,
 			hydrateFallbackElement: <p>Loading...</p>,
 			errorElement: <Error />,
 			children: [
@@ -35,6 +33,7 @@ function App() {
 				},
 				{
 					path: "/products",
+					loader: dataLoader,
 					element: <Product />
 				},
 				{
@@ -49,6 +48,7 @@ function App() {
 				},
 				{
 					path: "/cart/orders",
+					loader: productLoader,
 					element: <Cart />
 				},
 				{
