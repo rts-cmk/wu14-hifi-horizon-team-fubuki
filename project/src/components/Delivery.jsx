@@ -5,16 +5,16 @@ export default function Delivery() {
 
 	return (
 		<div className="cart-content__section form-content__delivery">
-			<h3 className="cart-content__title">Select your prefered delivery method</h3>
+			<h3 className="cart-content__title smaller-title">Select your prefered delivery method</h3>
 
-			<div>
+			<div className="form-content__box">
 				<button onClick={() => setSelectedType("home")} type="button"
-					className={`cart-content__method-button ${(selectedType === "home" && "active" || "")}`}>Home delivery</button>
+					className={`form-content__delivery-button ${(selectedType === "home" && "active" || "")}`}>Home delivery</button>
 				<button onClick={() => setSelectedType("collect")} type="button"
-					className={`cart-content__method-button ${(selectedType === "collect" && "active" || "")}`}>Click-and-collect</button>
+					className={`form-content__delivery-button ${(selectedType === "collect" && "active" || "")}`}>Click-and-collect</button>
 				<button onClick={() => setSelectedType("post")} type="button"
-					className={`cart-content__method-button ${(selectedType === "post" && "active" || "")}`}>Postoffice</button>
-				<p>Your order will be shipped to</p>
+					className={`form-content__delivery-button ${(selectedType === "post" && "active" || "")}`}>Postoffice</button>
+				<p className="form-content__delivery-title">Your order will be shipped to</p>
 				{(selectedType === "home" && <>
 
 					<p>61 Church St</p>

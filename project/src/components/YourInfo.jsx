@@ -2,57 +2,75 @@ export default function YourInfo() {
 
 	return (
 		<div className="cart-content__section form-content__info">
-			<h3 className="cart-content__title">Your info</h3>
+			<h3 className="cart-content__title smaller-title">Your info</h3>
 
-			<div>
-				<div>
-					<label htmlFor="fullname">Full name <span className="req">*</span></label>
-					<input type="text" name="fullname" placeholder="Individual Name" required />
+			<div className="form-content__flex">
+				<div className="form-content__box flex-inherit">
+					<label htmlFor="fullname"
+						className="form-content__label">Full name <span className="req">*</span></label>
+					<input type="text" name="fullname" placeholder="Individual Name" required
+						className="form-content__input" />
 
-					<label htmlFor="zip">Zip-code <span className="req">*</span></label>
-					<input type="text" name="zip" placeholder="12345" required />
-					<label htmlFor="city">City <span className="req">*</span></label>
-					<input type="text" name="city" placeholder="fx, New York City" required />
+					<div className="form-content__wrapper">
+						<label htmlFor="zip"
+							className="form-content__label">Zip-code <span className="req">*</span></label>
+						<label htmlFor="city"
+							className="form-content__label">City <span className="req">*</span></label>
+						<input type="text" name="zip" placeholder="12345" required
+							className="form-content__input" />
+						<input type="text" name="city" placeholder="fx, New York City" required
+							className="form-content__input" />
+					</div>
 
-					<label htmlFor="address">Address <span className="req">*</span></label>
-					<input type="text" name="address" placeholder="fx, 123 E 45th Street, Apt 10B" required />
+					<label htmlFor="address"
+						className="form-content__label">Address <span className="req">*</span></label>
+					<input type="text" name="address" placeholder="fx, 123 E 45th Street, Apt 10B" required
+						className="form-content__input" />
 
-					<label htmlFor="email">Email <span className="req">*</span></label>
-					<input type="email" name="email" placeholder="youemail@here.com" required />
+					<label htmlFor="email"
+						className="form-content__label">Email <span className="req">*</span></label>
+					<input type="email" name="email" placeholder="youemail@here.com" required
+						className="form-content__input" />
 
-					<label htmlFor="phone">Phone no. <span className="req">*</span></label>
-					<input type="text" name="phone" placeholder="+45 12 34 56 78" required />
+					<label htmlFor="phone"
+						className="form-content__label">Phone no. <span className="req">*</span></label>
+					<input type="text" name="phone" placeholder="+45 12 34 56 78" required
+						className="form-content__input" />
 				</div>
 
-				<div>
-					<h4 className="cart-content__title">Payment overview</h4>
-					<ul>
-						<li>
-							<p>Some Product #1</p>
-							<p>$9999</p>
+				<div className="form-content__box form-content__box-prices">
+					<h4 className="cart-content__title smaller-title">Payment overview</h4>
+					<ul className="form-content__list">
+						<li className="form-content__list-item">
+							<p className="form-content__list-item-title">Some Product #1</p>
+							<p className="form-content__list-item-price">$9999</p>
 						</li>
-						<li>
-							<p>Some Product #2</p>
-							<p>$9999</p>
+						<li className="form-content__list-item">
+							<p className="form-content__list-item-title">Some Product #2</p>
+							<p className="form-content__list-item-price">$9999</p>
 						</li>
 					</ul>
-					<p>Price $9999</p>
-					<div className="line">
+					<p className="form-content__subprice">Price <span>
+						$9999
+					</span></p>
+					<div className="gray-line">
 
 					</div>
 
-					<p>Delivery price <span>
+					<p className="form-content__price form-content__price-delivery">Delivery price <span>
 						$4.99
 					</span></p>
 
-					<p>VAT <span>
+					<p className="form-content__price form-content__price-vat">VAT <span>
 						$4999
 					</span></p>
-					<p>
-						Total price $19997.99
+					<p className="form-content__price form-content__price-total">
+						Total price <span>
+							$19997.99
+						</span>
 					</p>
 
-					<div>
+					<div className="form-content__agreements">
 						<input type="checkbox" name="sub"></input>
 						<label htmlFor="sub">Subscribe to newsletter</label>
 						<input type="checkbox" name="terms" required></input>
