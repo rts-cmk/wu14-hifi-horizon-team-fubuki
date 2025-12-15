@@ -3,12 +3,14 @@ import { IoMdRemove, IoMdAdd } from "react-icons/io"
 import { Link, useLoaderData } from "react-router"
 import { GiSettingsKnobs } from "react-icons/gi"
 import { useState } from "react"
+import { HandleCardItems, RetrieveCartItems } from "../helpers/cartHandler"
 
 
 export default function ProductDetails() {
 	const [amount, setAmount] = useState(1)
 	const [color, setColor] = useState(0)
 	const [image, setImage] = useState(0)
+	const [cart, setCart] = useState(false)
 	const productData = useLoaderData()
 
 	function lastImage() {
@@ -31,12 +33,25 @@ export default function ProductDetails() {
 		if (amount >= 2) {
 			setAmount(amount - 1)
 		} else if (amount <= 1) {
-			setAmount(99)
+			setAmount(productData.stock)
 		}
 	}
 
 	function addToCart(id = productData.id) {
+		if (amount <= productData.stock) {
+			HandleCardItems(id, amount, productData.price - ((productData.price / 100) * productData.discount), color + 1)
+		}
+		isAlreadyInCart()
+	}
 
+	function isAlreadyInCart() {
+		const cartItems = RetrieveCartItems()
+
+		if (cartItems.find(item => item.split("-")[0] == productData.id)) {
+			setCart(true)
+		} else {
+			setCart(false)
+		}
 	}
 
 	return (
@@ -104,8 +119,8 @@ export default function ProductDetails() {
 								* productData.discount)) * amount).toFixed(2)}
 						</span>
 
-						<span className={`product-content__info-stock ${(productData.status != 0 ? "stock" : "")}`}>
-							{(productData.status != 0 ? "In stock" : "Out of stock")}
+						<span className={`product-content__info-stock ${(productData.stock != 0 ? "stock" : "")}`}>
+							{(productData.stock != 0 ? "In stock" : "Out of stock")}
 						</span>
 					</p>
 
@@ -113,13 +128,18 @@ export default function ProductDetails() {
 						<div className="product-content__amounts">
 							<button onClick={() => removeAmount()}
 								className="product-content__amount-button"><IoMdRemove /></button>
-							<p className="product-content__amount">{(productData.status != 0 ? amount : 0)}</p>
-							<button onClick={() => { (amount >= 99 ? setAmount(1) : setAmount(amount + 1)) }}
+							<p className="product-content__amount">{(productData.stock != 0 ? amount : 0)}</p>
+							<button onClick={() => { (amount >= productData.stock ? setAmount(1) : setAmount(amount + 1)) }}
 								className="product-content__amount-button"><IoMdAdd /></button>
 						</div>
 
-						<button onClick={() => addToCart()}
-							className={`product-content__button-order ${(productData.status != 0 ? "stock" : "")}`}>Add to cart</button>
+						{(cart === false ? <button onClick={() => addToCart()}
+							className={`product-content__button-order ${(productData.stock != 0 ? "stock" : "")}`}>Add to cart</button>
+							:
+							<button
+								className={`product-content__button-order`}>Already in cart</button>)
+
+						}
 					</div>
 				</section>
 			</div>

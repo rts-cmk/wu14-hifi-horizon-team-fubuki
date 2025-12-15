@@ -1,11 +1,11 @@
-import { Link, useRouteLoaderData } from "react-router"
-import { GiSettingsKnobs } from "react-icons/gi";
+import { Link, useLoaderData } from "react-router"
+import { GiSettingsKnobs } from "react-icons/gi"
 
 export default function Products() {
 
-    const products = useRouteLoaderData("root")
+    const products = useLoaderData()
 
-    return(
+    return (
         <section className="section-ctgrs__products-section">
             <ul className="section-ctgrs__products-ul">
                 {
