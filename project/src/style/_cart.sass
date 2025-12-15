@@ -1,0 +1,123 @@
+// STYLING FOR CART PAGE
+@use "./_variables.sass" as var
+
+.cart-content
+	display: flex
+	padding: 2rem
+	flex-direction: column
+
+	&__amounts
+		gap: 30px
+		width: 150px
+		display: inherit
+		align-items: center
+
+	&__next
+		font-size: 14px
+		padding: 9px 25px
+		margin-left: auto
+		width: fit-content
+		border-radius: 5px
+		margin-bottom: 25px
+		color: var.$primary-white-color
+		transition: background 0.3s ease
+		background: var.$primary-button-orange-color
+
+		&.disabled
+			border: none
+			cursor: default
+			background: var.$primary-greyish-color
+
+		&.enabled:hover
+			background: adjust(var.$primary-button-orange-color, 5%)
+
+	&__total
+		margin: 25px 0
+		text-align: right
+
+		& span
+			color: var.$primary-orange-color
+
+	&__title
+		font-size: 32px
+		margin-bottom: 25px
+		color: var.$primary-grey-blue-color
+
+	&__list
+		gap: 20px
+		display: inherit
+		flex-direction: inherit
+
+	&__item
+		height: 150px
+		padding: 25px 50px
+		display: inherit
+		position: relative
+		border-radius: 5px
+		align-items: center
+		justify-content: space-between
+		background: var.$primary-white-color
+		box-shadow: 2px 4px 4px 0px #00000025
+
+		&-button
+			border: none
+			height: 25px
+			cursor: pointer
+			background: transparent
+
+			& svg
+				width: 25px
+				height: 25px
+
+		&-remove
+			top: 10px
+			right: 10px
+			height: 20px
+			border: none
+			cursor: pointer
+			position: absolute
+			background: transparent
+
+			& svg
+				width: 20px
+				height: 20px
+
+		&-stock
+			display: block
+			font-size: 12px
+			padding-left: 5px
+			width: fit-content
+
+			&.stock::before
+				background: #008000
+
+			&::before
+				width: 10px
+				content: ""
+				height: 10px
+				background: red
+				border-radius: 100px
+				display: inline-block
+				transform: translate(-50%, 13%)
+
+		&-price
+			width: 100px
+			text-align: right
+
+			& span
+				font-weight: lighter
+
+		&-name
+			width: 300px
+			font-size: 14px
+
+		&-amount
+			width: 35px
+			height: 35px
+			padding: 7px
+			text-align: center
+			background: var.$primary-lightest-grey-color
+
+		&-image
+			height: auto
+			width: 200px
