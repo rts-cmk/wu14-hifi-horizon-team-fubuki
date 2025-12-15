@@ -29,12 +29,12 @@ export function HandleCardItems(itemID = 0, quantity = 0, price = 0, color = "de
 	}
 
 	cartItems.forEach(item => {
-		let [id, qty, prc] = item.split("-")
+		let [id, qty, prc, clr] = item.split("-")
 
 		if (id == itemID) {
-			newCartItems.push(`${itemID}-${quantity}-${price}`)
+			newCartItems.push(`${itemID}-${quantity}-${price}-${clr}`)
 		} else if (qty >= 1) {
-			newCartItems.push(`${id}-${qty}-${prc}`)
+			newCartItems.push(`${id}-${qty}-${prc}-${clr}`)
 		}
 	})
 
