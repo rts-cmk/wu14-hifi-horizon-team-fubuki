@@ -1,7 +1,15 @@
+
+import ProfileInfo from "../components/ProfileInfo";
+
+
 export default function Profile() {
+  
+
   return (
-    <div>
-      <h1>Profile Page</h1>
-    </div>
+    <main className="main-content">
+      <section className="content-profile-sec">
+        <ProfileInfo />
+      </section>
+    </main>
   )
 }

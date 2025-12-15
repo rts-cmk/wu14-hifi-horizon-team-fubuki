@@ -4,7 +4,7 @@ import Products from "./Products";
 export default function ProductCategories() {
     return (
         <>
-            <h1 className="section-ctgrs__h1">PRODUCTS</h1>
+            <h2 className="section-ctgrs__title">PRODUCTS</h2>
             <section className="section-ctgrs">
                 <aside className="section-ctgrs__aside">
                     <h2 className="section-ctgrs__h2">Sort by</h2>       
