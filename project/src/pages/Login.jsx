@@ -1,7 +1,14 @@
+import { useParams } from "react-router"
+import LoginAccount from "../components/LoginAccount"
+import CreateAccount from "../components/CreateAccount"
+
 export default function Login() {
+
+  const profile = useParams().type 
   return (
-    <div>
-      <h1>Login Page</h1>
-    </div>
+    <>
+    {profile === "login" && <LoginAccount />}
+    {profile === "create" && <CreateAccount />}
+    </>
   )
 }
