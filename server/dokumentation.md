@@ -6,17 +6,22 @@ Dette projekt er en simpel **REST API** bygget med **Node.js** og **Express**, d
 
 API’et giver mulighed for at:
 
-- Hente populære produkter        "/api/popular"
-- Hente alle produkter            "/api/products"
-- Hente alle kategorier           "/api/categories"
-- Hente ét produkt via ID         "/api/product/:id"
-- Kontrollere om serveren kører   "/api"
+- Konto login                     "/api/account" GET (request-type: login)
+- Opret konto                     "/api/account/create" POST
+- Hente profil data               "/api/account" GET (request-type: info)
+
+- Hente populære produkter        "/api/popular" GET
+- Hente alle produkter            "/api/products" GET
+- Hente alle kategorier           "/api/categories" GET
+- Hente ét produkt via ID         "/api/product/:id" GET
+- Hente alle compare IDer         "/api/compare/:id" GET
+- Kontrollere om serveren kører   "/api" GET
 
 ---
 
 ## 📂 Hjælpefunktioner
 
-- saveData (lavet til fremtidig brug)
+- saveData (bruges minimalt)
 - loadData (bruges aktivt)
 
 ---

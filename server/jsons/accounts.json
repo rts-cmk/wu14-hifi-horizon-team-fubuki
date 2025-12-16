@@ -1,0 +1,25 @@
+[
+	{
+		"id": 1,
+		"email": "something@gmail.com",
+		"password": "something123",
+		"name": "John Doe",
+		"phone": "7875149753",
+		"auth": "4265798325456576435574545",
+		"address": {
+			"city": "",
+			"street": "Chruch St",
+			"number": 61,
+			"zip": "TD15 1EE",
+			"country": "United Kingdom"
+		},
+		"orders": [
+			{
+				"ordernumber": 123456789000,
+				"date": "02/22/2022",
+				"total": 450,
+				"items": 6
+			}
+		]
+	}
+]
