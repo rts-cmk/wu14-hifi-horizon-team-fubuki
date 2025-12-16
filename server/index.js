@@ -15,6 +15,8 @@ SERVER.use(express.static("public"))
 SERVER.use(express.urlencoded({ extended: true }))
 
 
+// VALUES
+let accountIds = 1
 
 // FUNCTIONS
 function loadData(file = "products") {
@@ -88,6 +90,141 @@ SERVER.get("/api/product/:id", (request, response) => {
 		})
 	} else {
 		response.status(200).json(recivedData.find((product) => product.id == Number(idParam)))
+	}
+})
+
+SERVER.get("/api/compare/:id", (request, response) => {
+	const idParam = request.params.id
+	const PRODUCTS = loadData()
+
+	if (!PRODUCTS.find(item => item.id == idParam)) {
+		response.status(404).json({ success: false, message: "the account does not exist" })
+	} else {
+		response.status(202).json({
+			success: true,
+			message: "list of comparabe ids",
+			result: PRODUCTS.find(item => item.id == idParam).compare
+		})
+	}
+})
+
+SERVER.post("/api/account/create", (request, response) => {
+	const SECOND_ADDRESS = request.get("address2")
+	const STREET = request.get("street") || ""
+	const HOUSE = request.get("house") || 0
+	const ADDRESS = request.get("address")
+	const COUNTRY = request.get("country")
+	const PASS = request.get("password")
+	let accounts = loadData("accounts")
+	const EMAIL = request.get("email")
+	const PHONE = request.get("phone")
+	const CITY = request.get("city")
+	const NAME = request.get("name")
+	const ZIP = request.get("zip")
+
+	if (!NAME || !ADDRESS || !SECOND_ADDRESS || !ZIP || !CITY || !COUNTRY || !PHONE || !EMAIL || !PASS) {
+		response.status(400).json({ success: false, message: "your request does not have the required fields" })
+	} else {
+		if (accounts.find(acc => acc.email == EMAIL)) {
+			response.status(403).json({ success: false, message: "the account does already exist" })
+		} else {
+			accountIds += 1
+
+			const AUTH_KEY = crypto.randomUUID()
+
+			accounts.push({
+				"id": accountIds,
+				"email": EMAIL,
+				"password": PASSWORD,
+				"name": NAME,
+				"phone": PHONE,
+				"auth": AUTH_KEY,
+				"address": {
+					"city": CITY,
+					"street": STREET,
+					"number": HOUSE,
+					"zip": ZIP,
+					"country": COUNTRY
+				},
+				"orders": []
+			})
+
+			saveData(accounts, "accounts")
+
+			response.status(201).json({
+				success: true,
+				message: "account created",
+				result: {
+					loginKey: `${EMAIL}___${AUTH_KEY}`
+				}
+			})
+		}
+	}
+})
+
+SERVER.get("/api/account", (request, response) => {
+	const REQUEST_TYPE = request.get("request-type")
+	const ACCOUNTS = loadData("accounts")
+
+	if (!REQUEST_TYPE) {
+		response.status(400).json({ success: false, message: "you have not set the request type yet" })
+	}
+
+	if (REQUEST_TYPE != "login" && REQUEST_TYPE != "info") {
+		response.status(400).json({ success: false, message: "the requested type does not exist" })
+	}
+
+	if (REQUEST_TYPE === "info") {
+		const REQUEST_KEY = request.get("request-key")
+		const EMAIL = REQUEST_KEY.split("___")[0]
+		const AUTH = REQUEST_KEY.split("___")[1]
+
+		if (!REQUEST_KEY) {
+			response.status(400).json({ success: false, message: "your request does not have the required fields" })
+		}
+
+		if (!ACCOUNTS.find(acc => acc.email == EMAIL)) {
+			response.status(404).json({ success: false, message: "the account does not exist" })
+		} else {
+			const ACC = ACCOUNTS.find(acc => acc.email == EMAIL)
+
+			if (ACC.auth === AUTH) {
+				response.status(202).json({
+					success: true,
+					message: "information matched",
+					result: ACC
+				})
+			} else {
+				response.status(401).json({ success: false, message: "the account does not exist" })
+			}
+		}
+	}
+
+	if (REQUEST_TYPE === "login") {
+		const EMAIL = request.get("email")
+		const PASSWORD = request.get("password")
+		const FORGET = request.get("forget") || true
+
+		if (!EMAIL || !PASSWORD) {
+			response.status(400).json({ success: false, message: "your request does not have the required fields" })
+		}
+
+		if (!ACCOUNTS.find(acc => acc.email == EMAIL)) {
+			response.status(404).json({ success: false, message: "the account does not exist" })
+		} else {
+			const ACC = ACCOUNTS.find(acc => acc.email == EMAIL)
+
+			if (ACC.password !== PASSWORD) {
+				response.status(401).json({ success: false, message: "account password does not match the password requested" })
+			} else {
+				response.status(202).json({
+					success: true,
+					message: "information matched",
+					loginKey: `${EMAIL}___${ACC.auth}`,
+					save: !FORGET
+				})
+			}
+		}
 	}
 })
 
