@@ -1,4 +1,15 @@
-export default function YourInfo() {
+import { useEffect, useState } from "react"
+
+export default function YourInfo({ products, cookie }) {
+	const [delivery, setDelivery] = useState(4.99)
+	const [total, setTotal] = useState(0)
+	const [vat, setVat] = useState(0)
+
+	useEffect(() => {
+		cookie.forEach((item) => {
+			setTotal(total + Number(item.split("-")[2]) * Number(item.split("-")[1]))
+		})
+	}, [])
 
 	return (
 		<div className="cart-content__section form-content__info">
@@ -41,32 +52,30 @@ export default function YourInfo() {
 				<div className="form-content__box form-content__box-prices">
 					<h4 className="cart-content__title smaller-title">Payment overview</h4>
 					<ul className="form-content__list">
-						<li className="form-content__list-item">
-							<p className="form-content__list-item-title">Some Product #1</p>
-							<p className="form-content__list-item-price">$9999</p>
-						</li>
-						<li className="form-content__list-item">
-							<p className="form-content__list-item-title">Some Product #2</p>
-							<p className="form-content__list-item-price">$9999</p>
-						</li>
+						{((products && cookie) && products.map((item, index) => {
+							return <li className="form-content__list-item" key={item.name}>
+								<p className="form-content__list-item-title">{item.name}</p>
+								<p className="form-content__list-item-price">${
+									(Number(cookie[index].split("-")[2]) * Number(cookie[index].split("-")[1])).toFixed(2)}</p>
+							</li>
+						}))}
 					</ul>
 					<p className="form-content__subprice">Price <span>
-						$9999
+						${total.toFixed(2)}
 					</span></p>
-					<div className="gray-line">
 
-					</div>
+					<div className="gray-line"></div>
 
 					<p className="form-content__price form-content__price-delivery">Delivery price <span>
-						$4.99
+						${delivery}
 					</span></p>
 
 					<p className="form-content__price form-content__price-vat">VAT <span>
-						$4999
+						${vat}
 					</span></p>
 					<p className="form-content__price form-content__price-total">
 						Total price <span>
-							$19997.99
+							${(total + delivery + vat).toFixed(2)}
 						</span>
 					</p>
 
