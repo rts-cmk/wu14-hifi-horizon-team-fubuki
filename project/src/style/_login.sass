@@ -90,7 +90,7 @@
         padding: 10px
         background-color: var.$primary-button-orange-color
         color: var.$primary-white-color
-        font-weight: 600
+        font-size: 18px
         border: none
         cursor: pointer
         transition: background-color .25s ease
@@ -99,6 +99,17 @@
 
         &:hover
             background-color: darken(var.$primary-button-orange-color, 10%)
+
+    &__p
+        font-size: 14px
+        margin-top: 10px
+
+    &--create-account
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        text-align: center
 
 .zip-code-input
     width: 20%
@@ -111,3 +122,6 @@
 
 .phone-input
     width: 50%
+
+.remember-me
+    margin: 15px 0 0 0 !important
