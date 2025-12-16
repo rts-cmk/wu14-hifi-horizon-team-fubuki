@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react"
+import { useLoaderData } from "react-router"
 
 
 export default function ProductComparison() {
   const [compareProducts, setCompareProducts] = useState([])
-  const compareIds = useLoaderData()
+  const compareIds = useLoaderData() || []
 
   useEffect(() => {
 
     async function fetchCompareProducts() {
 
       var promises = []
+
+      console.log(compareIds)
 
       compareIds.forEach(id => {
         const promise = fetch(`http://localhost:3000/api/product/${id}`).then(res => res.json())

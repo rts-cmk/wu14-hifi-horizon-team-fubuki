@@ -1,16 +1,16 @@
-export default async function compareLoader({ id }) {
-    if (!id) {
-        return {}
+export default async function compareLoader({ params }) {
+    if (!params.id) {
+        return []
     } else {
         try {
-            const response = await fetch(`http://localhost:3000/api/compare/${id}`)
+            const response = await fetch(`http://localhost:3000/api/compare/${params.id}`)
             const data = await response.json()
 
-            return data
+            return data.result
 
         }
         catch (err) {
-            return {}
+            return []
         }
     }
 }
