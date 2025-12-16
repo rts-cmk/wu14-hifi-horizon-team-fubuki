@@ -6,6 +6,9 @@
     background-color: var.$primary-white-color
     box-shadow: 0 5px 7px var.$primary-shadow-color
 
+    &__div
+        max-width: 800px
+
     &__h3
         font-size: 24px
         text-transform: uppercase
@@ -81,6 +84,21 @@
     &__form--checkbox:last-of-type
         margin-top: 7px
         margin-bottom: 20px
+
+    &__form--btn
+        margin-top: 20px
+        padding: 10px
+        background-color: var.$primary-button-orange-color
+        color: var.$primary-white-color
+        font-weight: 600
+        border: none
+        cursor: pointer
+        transition: background-color .25s ease
+        width: 250px
+        box-shadow: 0 4px 6px var.$primary-shadow-color
+
+        &:hover
+            background-color: darken(var.$primary-button-orange-color, 10%)
 
 .zip-code-input
     width: 20%
