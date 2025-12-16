@@ -4,7 +4,8 @@ import { FaCartShopping } from "react-icons/fa6";
 import { Link, NavLink } from "react-router";
 import Logo from "../assets/icons/logo.svg?react";
 
-export default function Header() {
+export default function Header({items = 0}) {
+
   return (
     <header className="header">
       <div className="header__section-left">
@@ -25,7 +26,7 @@ export default function Header() {
           <button className="header__btn-search"><FaSearch className="header__icon-search" /></button>
         </form>
         <NavLink to="/profile" className={({ isActive }) => "header__link-profile" + (isActive ? " active-svg" : "")} ><FaUser className="header__icon-profile" /></NavLink>
-        <NavLink to="/cart/orders" className={({ isActive }) => "header__link-add-to-cart" + (isActive ? " active-svg" : "")}><FaCartShopping className="header__icon-add-to-cart" /><div className="header__div-add-to-cart">1</div></NavLink>
+        <NavLink to="/cart/orders" className={({ isActive }) => "header__link-add-to-cart" + (isActive ? " active-svg" : "")}><FaCartShopping className="header__icon-add-to-cart" /> {items === 0 ? "" : <div className="header__div-add-to-cart">{items}</div>}</NavLink>
       </div>
     </header>
   )
