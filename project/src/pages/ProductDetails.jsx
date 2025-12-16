@@ -1,17 +1,19 @@
+import { HandleCardItems, RetrieveCartItems } from "../helpers/cartHandler"
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa"
 import { IoMdRemove, IoMdAdd } from "react-icons/io"
-import { Link, useLoaderData } from "react-router"
+import { Link, useLoaderData, useOutletContext } from "react-router"
 import { GiSettingsKnobs } from "react-icons/gi"
 import { useState } from "react"
-import { HandleCardItems, RetrieveCartItems } from "../helpers/cartHandler"
 
 
 export default function ProductDetails() {
+	const [items, setItems] = useOutletContext()
 	const [amount, setAmount] = useState(1)
+	const [cart, setCart] = useState(false)
 	const [color, setColor] = useState(0)
 	const [image, setImage] = useState(0)
-	const [cart, setCart] = useState(false)
 	const productData = useLoaderData()
+
 
 	function lastImage() {
 		if (image <= 0) {
@@ -41,6 +43,8 @@ export default function ProductDetails() {
 		if (amount <= productData.stock) {
 			HandleCardItems(id, amount, productData.price - ((productData.price / 100) * productData.discount), color + 1)
 		}
+
+		setItems(items + 1)
 		isAlreadyInCart()
 	}
 

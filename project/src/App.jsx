@@ -56,7 +56,7 @@ function App() {
 					element: <Payment />
 				},
 				{
-					path: "/cart/invoice/:details",
+					path: "/cart/invoice",
 					element: <Invoice />
 				},
 				{
