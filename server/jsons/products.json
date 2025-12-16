@@ -6,6 +6,7 @@
 		"discount": 8.53,
 		"brand": "Marantz",
 		"categorie": "AMPLIFIERS",
+		"stock": 2,
 		"images": [
 			"something1.jpg",
 			"something2.jpg"
