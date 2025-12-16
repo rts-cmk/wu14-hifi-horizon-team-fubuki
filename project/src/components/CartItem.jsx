@@ -1,13 +1,18 @@
 import { IoMdAdd, IoMdClose, IoMdRemove } from "react-icons/io"
 import { HandleCardItems } from "../helpers/cartHandler"
+import { useOutletContext } from "react-router"
 
 export default function CartItem({ item, idx, func, itemAMT = 1 }) {
+	const [items, setItems] = useOutletContext()
 	itemAMT = Number(itemAMT)
 	const itemID = item.id
+
 
 	function DeleteItem() {
 		itemAMT = 0
 		HandleCardItems(itemID, 0, 0)
+		setItems(items - 1)
+		func()
 	}
 
 	function ChangeAmount(amount) {
@@ -19,10 +24,9 @@ export default function CartItem({ item, idx, func, itemAMT = 1 }) {
 
 		HandleCardItems(itemID, itemAMT, item.price - ((item.price / 100) * item.discount))
 
-		if (amount >= 1) {
-			func()
-		} else {
-			func()
+		func()
+		if (itemAMT == 0) {
+			setItems(items - 1)
 		}
 	}
 

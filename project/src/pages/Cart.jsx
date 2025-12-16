@@ -4,7 +4,7 @@ import CartItem from "../components/CartItem.jsx"
 import { useState, useEffect } from "react"
 import { Link } from "react-router"
 
-export default function Cart() {
+export default function Cart({ items, setItems }) {
 	const [totalPrice, setTotalPrice] = useState(0)
 	const [products, setProducts] = useState([])
 
@@ -56,7 +56,7 @@ export default function Cart() {
 			<ol className="cart-content__list">
 				{products.length > 0 ? products.map((item, idx) => (
 					<CartItem key={`${item}-${idx}`} item={item} idx={idx} func={CalculateTotal}
-						itemAMT={retriveAMT(item.id)} />
+						itemAMT={retriveAMT(item.id)} setItms={setItems} itms={items} />
 				)) :
 					<p className="cart-content__empty">Your cart is empty</p>
 				}
