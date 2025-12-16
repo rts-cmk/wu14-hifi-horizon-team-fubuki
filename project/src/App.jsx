@@ -4,6 +4,7 @@ import ProductDetails from './pages/ProductDetails.jsx'
 import productLoader from './helpers/productLoader.js'
 import popularLoader from './helpers/popularLoader.js'
 import compareLoader from './helpers/compareLoader.js'
+import profileLoader from './helpers/profileLoader.js'
 import dataLoader from './helpers/dataLoader.js'
 import ContactUs from './pages/ContactUs.jsx'
 import MoreInfo from './pages/MoreInfo.jsx'
@@ -22,7 +23,9 @@ function App() {
 
 	const browserRouter = createBrowserRouter([
 		{
+			id: "profile",
 			element: <Layout />,
+			loader: profileLoader,
 			hydrateFallbackElement: <p>Loading...</p>,
 			errorElement: <Error />,
 			children: [
