@@ -22,6 +22,7 @@ export default function ProductComparison() {
 			const results = await Promise.all(promises)
 
 			setCompareProducts(results)
+      console.log(results)
     }
 
     fetchCompareProducts()
@@ -29,8 +30,35 @@ export default function ProductComparison() {
 
 
   return (
-    <div>
-      <h1>ProductComparison Page</h1>
-    </div>
+    <main className="compare-content">
+      <h2 className="main-content__h2">PRODUCT COMPARISON</h2>
+      <section className="compare-section">
+        <table className="compare-section__table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>product</th>
+              <th>product</th>
+              <th>product</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>brand</th>
+              <td>Brand A</td>
+              <td>Brand B</td>
+              <td>Brand C</td>
+            </tr>
+            <tr>
+              <th>category</th>
+              <td>Category A</td>
+              <td>Category B</td>
+              <td>Category C</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      {compareProducts.length > 0 ? compareProducts.map((item, idx) => (<div key={idx}></div>)) : <p>Loading...</p>}
+    </main>
   )
 }

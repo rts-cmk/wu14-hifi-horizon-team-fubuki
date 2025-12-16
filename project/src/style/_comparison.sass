@@ -1,0 +1,29 @@
+@use "variables" as var
+
+.compare-section
+    margin: 3dvw
+    padding: 20px
+    background-color: var.$primary-white-color
+    box-shadow: 0 5px 7px var.$primary-shadow-color
+
+    &__table
+        width: 100%
+        border-collapse: collapse
+
+        th, td
+            border: 1px solid var.$primary-light-grey-color
+            padding: 10px
+            text-align: center
+
+        th:first-child,
+        tbody th
+            text-align: left
+            width: 220px   
+            background-color: var.$primary-lightest-grey-color
+            font-weight: 600
+
+        th
+            font-weight: 600
+
+        td
+            font-weight: 400
