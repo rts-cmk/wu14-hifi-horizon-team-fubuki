@@ -1,5 +1,6 @@
 // STYLING FOR CART PAGE
 @use "./_variables.sass" as var
+@use 'sass:color'
 
 .cart-content
 	display: flex
@@ -31,7 +32,7 @@
 			background: var.$primary-greyish-color
 
 		&.enabled:hover
-			background: darken(var.$primary-button-orange-color, 5%)
+			background: color.adjust(var.$primary-button-orange-color, $lightness: -5%)
 
 	&__total
 		margin: 25px 0

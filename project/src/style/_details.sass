@@ -1,5 +1,6 @@
 // STYLING FOR DETAILS PAGE
 @use "./_variables.sass" as var
+@use 'sass:color'
 
 .product-content
 	display: flex
@@ -217,7 +218,11 @@
 
 			&.stock
 				cursor: pointer
+				transition: background 0.25s ease
 				background: var.$primary-orange-color
+
+				&:hover
+					background: color.adjust(var.$primary-button-orange-color, $lightness: -5%)
 
 		&-compare
 			margin-left: auto

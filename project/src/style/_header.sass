@@ -1,5 +1,5 @@
 @use "variables" as var
-    
+
 .header
     display: flex
     justify-content: space-between
@@ -13,7 +13,7 @@
         flex-wrap: wrap
         align-items: center
         gap: 2rem
-    
+
     &__ul
         list-style: none
         display: flex
@@ -23,7 +23,6 @@
         cursor: pointer
         font-weight: bold
         transition: all 0.3s ease
-
 
     &__div-search
         position: relative
@@ -52,10 +51,11 @@
         gap: 1.5rem
 
     &__link-profile, &__link-add-to-cart
+        border-bottom: 2px solid transparent
         color: var.$primary-font-white-color
+        transition: border-bottom 0.25s
         font-size: 1.5rem
         cursor: pointer
-
 
     &__link-add-to-cart
         position: relative

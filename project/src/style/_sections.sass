@@ -1,5 +1,6 @@
 // STYLING FOR SECTIONS
 @use "./_variables.sass" as var
+@use 'sass:color'
 
 // popular
 .popular-section
@@ -14,8 +15,12 @@
 		border-radius: 5px
 		font-weight: normal
 		text-decoration: none
+		transition: background 0.25s ease
 		color: var.$primary-font-white-color
 		background: var.$primary-orange-color
+
+		&:hover
+			background: color.adjust(var.$primary-button-orange-color, $lightness: -5%)
 
 	&__title
 		display: flex
@@ -56,8 +61,12 @@
 			border-radius: 5px
 			font-weight: normal
 			text-decoration: none
+			transition: background 0.25s ease
 			color: var.$primary-font-white-color
 			background: var.$primary-orange-color
+
+			&:hover
+				background: color.adjust(var.$primary-button-orange-color, $lightness: -5%)
 
 		&-image-holder
 			height: 75px
@@ -104,8 +113,12 @@
 			cursor: pointer
 			padding: 10px 40px
 			border-radius: 5px
+			transition: background 0.25s ease
 			color: var.$primary-font-white-color
 			background: var.$primary-orange-color
+
+			&:hover
+				background: color.adjust(var.$primary-button-orange-color, $lightness: -5%)
 
 		&-input
 			width: 50%

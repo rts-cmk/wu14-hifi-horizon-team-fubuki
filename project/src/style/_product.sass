@@ -1,4 +1,5 @@
 @use "variables" as var
+@use 'sass:color'
 
 .section-ctgrs
     display: flex
@@ -146,13 +147,17 @@
 
     &__products-link
         color: var.$primary-white-color
-        background-color: var.$primary-button-orange-color
+        background: var.$primary-button-orange-color
         box-shadow: 0 3px 5px var.$primary-shadow-color
         padding: 8px 20px
         border-radius: 3px
         font-size: 14px
         border: none
         cursor: pointer
+        transition: background 0.25s ease
+
+        &:hover
+            background: color.adjust(var.$primary-button-orange-color, $lightness: -5%)
 
     &__products-stock-status
 
@@ -163,7 +168,7 @@
             background: red
             border-radius: 100px
             display: inline-block
-            transform: translate(50%, 16%) 
+            transform: translate(50%, 16%)
 
         &.stock::after
             background: #008000
@@ -172,15 +177,11 @@
         position: absolute
         right: 10px
         top: 10px
-    
 
 @media screen and (max-width: 768px)
-        .section-ctgrs
-            flex-wrap: wrap
-            justify-content: center
-
-            
-
+    .section-ctgrs
+        flex-wrap: wrap
+        justify-content: center
 
         .section-ctgrs__products-ul
-           justify-content: center
+            justify-content: center
