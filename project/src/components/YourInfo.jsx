@@ -53,7 +53,7 @@ export default function YourInfo({ products, cookie }) {
 					<h4 className="cart-content__title smaller-title">Payment overview</h4>
 					<ul className="form-content__list">
 						{((products && cookie) && products.map((item, index) => {
-							return <li className="form-content__list-item" key={item.name}>
+							return <li className="form-content__list-item" key={`1-${item.name}`}>
 								<p className="form-content__list-item-title">{item.name}</p>
 								<p className="form-content__list-item-price">${
 									(Number(cookie[index].split("-")[2]) * Number(cookie[index].split("-")[1])).toFixed(2)}</p>
