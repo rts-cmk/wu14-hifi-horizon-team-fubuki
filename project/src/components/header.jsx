@@ -4,7 +4,7 @@ import { FaCartShopping } from "react-icons/fa6";
 import { Link, NavLink } from "react-router";
 import Logo from "../assets/icons/logo.svg?react";
 
-export default function Header({items = 0}) {
+export default function Header({ items = 0 }) {
 
   return (
     <header className="header">
@@ -21,7 +21,7 @@ export default function Header({items = 0}) {
         </nav>
       </div>
       <div className="header__section-right">
-        <form className="header__div-search" action="/">
+        <form className="header__div-search" action="/products">
           <input className="header__input-search" type="text" name="search" placeholder="Search product..." required />
           <button className="header__btn-search"><FaSearch className="header__icon-search" /></button>
         </form>
