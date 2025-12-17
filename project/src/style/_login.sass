@@ -1,0 +1,127 @@
+@use "variables" as var
+
+.section-login
+    margin: 3dvw
+    padding: 20px
+    background-color: var.$primary-white-color
+    box-shadow: 0 5px 7px var.$primary-shadow-color
+
+    &__div
+        max-width: 800px
+
+    &__h3
+        font-size: 24px
+        text-transform: uppercase
+        font-weight: 550
+
+    &__form
+        display: flex
+        flex-direction: column
+        gap: 5px
+        margin-top: 20px
+
+        & label
+            font-weight: 550
+            padding-top: 20px
+
+        & input
+            padding: 7px
+            border-radius: 5px
+            border: none
+            background: var.$primary-light-grey-color
+            box-shadow: 0 2px 4px var.$primary-shadow-color
+
+        &--flex
+            display: flex
+            align-items: center
+            justify-content: space-between
+            gap: 20px
+
+            & input
+                margin-top: 5px
+
+        &--flex-element
+            display: flex
+            flex-direction: column
+
+    &__form--checkbox
+        margin: 20px 0 7px 0
+        display: flex
+        align-items: center
+        gap: 10px
+
+        & label
+            font-weight: 400
+            padding-top: 0
+
+        & input
+            appearance: none
+            -webkit-appearance: none
+            width: 20px
+            height: 20px
+            background-color: var.$primary-lightest-grey-color
+            border-radius: 15%
+            cursor: pointer
+            position: relative
+            transition: all .25s ease
+
+        & input:before
+            content: ""
+            position: absolute
+            top: 2px
+            left: 6px
+            width: 7px
+            height: 11px
+
+            border-right: 2px solid green
+            border-bottom: 2px solid green
+            transform: rotate(45deg)
+            opacity: 0
+
+        & input:checked::before
+            opacity: 1
+
+    &__form--checkbox:last-of-type
+        margin-top: 7px
+        margin-bottom: 20px
+
+    &__form--btn
+        margin-top: 20px
+        padding: 10px
+        background-color: var.$primary-button-orange-color
+        color: var.$primary-white-color
+        font-size: 18px
+        border: none
+        cursor: pointer
+        transition: background-color .25s ease
+        width: 250px
+        box-shadow: 0 4px 6px var.$primary-shadow-color
+
+        &:hover
+            background-color: darken(var.$primary-button-orange-color, 10%)
+
+    &__p
+        font-size: 14px
+        margin-top: 10px
+
+    &--create-account
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        text-align: center
+
+.zip-code-input
+    width: 20%
+
+.city-input
+    width: 80%
+
+.country-input
+    width: 50%
+
+.phone-input
+    width: 50%
+
+.remember-me
+    margin: 15px 0 0 0 !important

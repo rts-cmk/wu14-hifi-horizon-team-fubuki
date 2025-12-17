@@ -1,0 +1,100 @@
+@use "variables" as var
+    
+.header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 1rem 2rem
+    background-color: var.$background-black-color
+    color: var.$primary-font-white-color
+
+    &__section-left
+        display: flex
+        flex-wrap: wrap
+        align-items: center
+        gap: 2rem
+    
+    &__ul
+        list-style: none
+        display: flex
+        gap: 2rem
+
+    &__li:hover
+        cursor: pointer
+        font-weight: bold
+        transition: all 0.3s ease
+
+
+    &__div-search
+        position: relative
+        margin: 0 1.5rem
+
+    &__input-search
+        height: 38px
+        width: 200px
+        padding: 0 10px
+        border: none
+        border-radius: 3px
+        background-color: var.$primary-light-grey-color
+
+    &__icon-search
+        position: absolute
+        width: 22px
+        height: 22px
+        top: 30%
+        right: 5px
+        color: var.$primary-black-color
+        cursor: pointer
+
+    &__section-right
+        display: flex
+        align-items: center
+        gap: 1.5rem
+
+    &__link-profile, &__link-add-to-cart
+        color: var.$primary-font-white-color
+        font-size: 1.5rem
+        cursor: pointer
+
+
+    &__link-add-to-cart
+        position: relative
+
+    &__div-add-to-cart
+        position: absolute
+        top: -8px
+        right: -10px
+        background-color: var.$primary-orange-color
+        color: var.$primary-white-color
+        border-radius: 50%
+        width: 18px
+        height: 18px
+        display: flex
+        justify-content: center
+        align-items: center
+        font-size: 0.75rem
+        font-weight: bold
+
+    &__btn-search
+        all: unset
+        cursor: pointer
+
+.active
+    font-weight: bold
+
+.active-svg
+    border-bottom: 2px solid var.$primary-orange-color
+
+@media screen and (max-width: 768px)
+    .header
+        flex-direction: column
+        align-items: center
+
+        &__section-left
+            gap: 1rem
+
+        &__ul
+            gap: 1rem
+
+        &__div-search
+            margin: 1rem 0

@@ -1,0 +1,67 @@
+// STYLING FOR CONTACT US PAGE
+@use "./_variables.sass" as var
+
+.contact-content
+	padding: 2rem
+
+	&__title
+		font-size: 48px
+		margin-bottom: 75px
+		text-transform: uppercase
+		color: var.$primary-grey-blue-color
+
+	&__form
+		gap: 5px
+		display: flex
+		padding: 50px
+		background: #FFFFFF
+		flex-direction: column
+		box-shadow: 2px 4px 4px 0px #00000025
+
+		&-text
+			font-weight: bold
+
+			& .req
+				color: red
+
+		& textarea
+			width: 100%
+			resize: none
+			height: 150px
+			max-width: none
+
+		&-input
+			border: none
+			padding: 10px
+			max-width: 750px
+			border-radius: 5px
+			margin-bottom: 15px
+			box-shadow: 2px 4px 4px 0px #00000025
+			background: var.$primary-light-grey-color
+
+	&__submit
+		border: none
+		color: white
+		cursor: pointer
+		margin-left: auto
+		padding: 15px 45px
+		border-radius: 5px
+		background: var.$primary-orange-color
+
+	@media screen and (max-width: 876px)
+		&__form
+			padding: 20px
+
+		&__submit
+			width: 100%
+
+	&__extra
+		font-size: 24px
+		margin-top: 30px
+		text-align: center
+
+		& span
+			color: var.$primary-orange-color
+
+label .req
+			color: red

@@ -1,0 +1,92 @@
+@use "variables" as var
+    
+.content-profile-sec
+    margin: 3dvw
+    background-color: var.$primary-white-color
+    box-shadow: 0 5px 7px var.$primary-shadow-color
+    overflow: hidden
+    transition: all 0.3s ease
+
+    &__div-buttons
+        width: 100%
+        display: flex
+
+    &__button
+        width: 50%
+        padding: 0.6rem
+        background-color: var.$primary-light-grey-color
+        color: var.$primary-font-black-color
+        border: none
+        cursor: pointer
+        font-size: 24px
+
+    &__h2-title
+        font-size: 24px
+        font-weight: 600
+        padding: 40px 0 20px 20px
+
+    &__ul
+        padding: 40px
+
+    &__li
+        display: flex
+        justify-content: space-between
+        align-items: flex-start
+        padding-bottom: 30px
+        margin-bottom: 30px
+        border-bottom: 1px solid var.$primary-greyish-color
+
+    &__li:last-of-type
+        border-bottom: none
+        margin-bottom: 0
+        
+
+    &__li-div
+        display: flex
+        align-items: flex-start
+        
+
+    &__li-icon
+        font-size: 35px
+        margin-top: 5px
+        margin-right: 10px
+
+
+    &__li-div-info
+        display: flex
+        flex-direction: column
+
+    &__li-span
+        font-size: 16px
+        font-weight: bold
+
+    &__li-button
+        color: var.$primary-grey-blue-color
+        border: 1px solid var.$primary-grey-blue-color
+        width: 45px
+        height: 45px
+        display: flex
+        align-items: center
+        justify-content: center
+        cursor: pointer
+        font-size: 24px
+        box-shadow: 0 4px 5px var.$primary-shadow-color
+
+    &__main-section-info
+        overflow: hidden
+        transition: height 0.3s ease
+
+    &__li-span-info
+        width: 162px
+
+.invis
+    display: none
+
+
+.current
+    background-color: var.$primary-grey-blue-color
+    color: var.$primary-white-color
+
+
+.li-orders 
+    align-items: center

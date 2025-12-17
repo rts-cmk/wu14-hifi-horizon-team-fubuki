@@ -1,0 +1,253 @@
+// STYLING FOR DETAILS PAGE
+@use "./_variables.sass" as var
+
+.product-content
+	display: flex
+	padding: 2rem
+	flex-direction: column
+
+	&__spec
+		height: 50px
+		display: flex
+		padding: 7.5px 25px
+		overflow: hidden
+		max-width: 500px
+		align-items: center
+		justify-content: space-between
+
+		& p
+			height: 100%
+			max-width: 215px
+			font-size: 14px
+
+			&:first-of-type
+				font-weight: bold
+
+			&:last-of-type
+				max-width: 75px
+				text-align: right
+
+		&.dark
+			background: var.$primary-fold-out-greyish-color
+
+		&s
+			margin: 35px
+			max-width: 500px
+			position: relative
+
+			&-line
+				top: 0px
+				left: 55%
+				width: 1px
+				height: 100%
+				position: absolute
+				background: #D2D2D2
+
+	&__image
+		margin: auto
+		max-width: 35dvw
+		max-height: 35dvw
+
+		&-button
+			top: 50%
+			border: none
+			cursor: pointer
+			color: #D2D2D2
+			position: absolute
+			background: transparent
+			transform: translateY(-50%)
+
+			&-small
+				width: 20px
+				height: 20px
+				cursor: pointer
+				border-radius: 100px
+				border: 2px solid #b5b5b5
+
+				&.active
+					background: #b5b5b5
+
+			&:last-of-type
+				right: 0px
+
+			& svg
+				width: 40px
+				height: 80px
+
+		&-holder
+			width: 45dvw
+			display: inherit
+			position: relative
+			flex-direction: column
+
+		&-caption
+			width: 100%
+			height: 100%
+			position: absolute
+
+		&-small-buttons
+			gap: 10px
+			bottom: 0px
+			width: 100%
+			display: flex
+			position: absolute
+			justify-content: center
+
+		@media screen and (max-width: 580px)
+			&s
+				margin: 0
+
+			& p
+				max-width: 32dvw
+
+	&__holder
+		display: inherit
+		justify-content: space-between
+
+	&__line
+		width: 100%
+		height: 2px
+		margin: 75px 0
+		background: #D2D2D2
+
+	&__title
+		font-size: 48px
+		color: var.$primary-grey-blue-color
+
+	&__color
+
+		&-name
+			cursor: pointer
+			font-size: 12px
+			text-align: center
+
+		&.active > p
+			font-weight: bold
+
+		&.active > div > div
+			width: 35px
+			height: 35px
+			cursor: pointer
+			border-radius: 100px
+			transform: translate(-12%, -11%)
+			border: 2px solid var.$primary-light-grey-color
+			border-color: inherit
+
+		&-design
+			width: 27px
+			margin: 8px
+			height: 27px
+			cursor: pointer
+			border-radius: 100px
+
+		&s
+			gap: 15px
+			display: flex
+			margin: 15px 0
+
+	&__name
+		font-size: 24px
+		max-width: 320px
+		max-height: 75px
+		overflow: hidden
+
+	&__description
+		font-size: 14px
+		font-weight: 600
+		max-width: 500px
+		min-height: 275px
+
+	&__info
+		display: flex
+		align-items: center
+		justify-content: space-between
+
+		&-price
+			font-size: 24px
+			font-weight: bold
+
+		&-stock
+
+			&.stock::after
+				background: #008000
+
+			&::after
+				width: 15px
+				content: ""
+				height: 15px
+				background: red
+				border-radius: 100px
+				display: inline-block
+				transform: translate(50%, 16%)
+
+	&__amount
+		width: 22px
+
+		&s
+			gap: 30px
+			display: inherit
+			width: fit-content
+			align-items: center
+
+		&-button
+			width: 30px
+			height: 25px
+			border: none
+			cursor: pointer
+			background: transparent
+
+			& svg
+				width: inherit
+				height: inherit
+
+	&__button
+
+		&s-holder
+			display: flex
+			margin-top: 30px
+			justify-content: space-between
+
+		&-order
+			border: none
+			min-width: 28dvw
+			border-radius: 5px
+			padding: 12px 10dvw
+			color: var.$primary-font-white-color
+			background: var.$primary-grey-blue-color
+
+			&.stock
+				cursor: pointer
+				background: var.$primary-orange-color
+
+		&-compare
+			margin-left: auto
+
+		&-icon
+			width: 25px
+			height: 25px
+			margin-left: 10px
+			transform: translateY(30%)
+
+	@media screen and (max-width: 867px)
+
+		&__image
+
+			&-holder
+				width: 100%
+				margin: 25px 0
+				height: 45dvw
+
+		&__holder
+			flex-direction: column
+
+.black
+	border-color: black
+	background: linear-gradient(to bottom left, black 60%, #DFE0E1)
+
+.silver
+	border-color: #919292
+	background: linear-gradient(to bottom left, #919292 60%, #DFE0E1)
+
+.gold
+	border-color: #AF8726
+	background: linear-gradient(to bottom left, #AF8726 60%, #F8F08B)

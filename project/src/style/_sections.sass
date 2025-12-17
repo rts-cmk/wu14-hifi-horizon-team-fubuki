@@ -1,0 +1,122 @@
+// STYLING FOR SECTIONS
+@use "./_variables.sass" as var
+
+// popular
+.popular-section
+	margin: 3dvw
+
+	&__button
+		border: none
+		cursor: pointer
+		font-size: 13px
+		margin-left: auto
+		padding: 10px 35px
+		border-radius: 5px
+		font-weight: normal
+		text-decoration: none
+		color: var.$primary-font-white-color
+		background: var.$primary-orange-color
+
+	&__title
+		display: flex
+		min-height: 40px
+		align-items: center
+		color: var.$primary-grey-blue-color
+
+		& span
+			height: fit-content
+
+	&__product
+		width: 260px
+		height: 339px
+		padding: 25px
+		display: inherit
+		align-items: center
+		flex-direction: column
+		justify-content: space-between
+		background: var.$primary-white-color
+		box-shadow: 2px 4px 4px 0px #00000025
+
+		&-title
+			height: 45px
+			font-size: 16px
+			overflow: hidden
+			text-align: center
+
+		&-price
+			font-size: 24px
+			margin-top: 40px
+			font-weight: bold
+
+		&-button
+			border: none
+			cursor: pointer
+			font-size: 13px
+			padding: 10px 35px
+			border-radius: 5px
+			font-weight: normal
+			text-decoration: none
+			color: var.$primary-font-white-color
+			background: var.$primary-orange-color
+
+		&-image-holder
+			height: 75px
+
+		&s
+			gap: 25px
+			width: 100%
+			display: flex
+			flex-wrap: wrap
+			overflow: hidden
+			padding: 25px 0 10px
+			justify-content: space-between
+
+	@media screen and (max-width: 900px)
+		&__products
+			justify-content: center
+
+	@media screen and (max-width: 600px)
+		&__title
+			flex-direction: column
+
+		&__button
+			width: 100%
+			text-align: center
+
+// newsletter
+.newsletter-section
+	margin: 3dvw
+	padding: 25px
+	background: var.$primary-white-color
+	box-shadow: 2px 4px 4px 0px #00000025
+
+	&__title, &__text
+		text-align: center
+
+	&__form
+		gap: 25px
+		display: flex
+		padding-top: 25px
+		justify-content: center
+
+		&-submit
+			border: none
+			cursor: pointer
+			padding: 10px 40px
+			border-radius: 5px
+			color: var.$primary-font-white-color
+			background: var.$primary-orange-color
+
+		&-input
+			width: 50%
+			border: none
+			padding: 10px
+			border-radius: 5px
+			background: var.$primary-fold-out-greyish-color
+
+	@media screen and (max-width: 600px)
+		&__form
+			flex-direction: column
+
+			&-input
+				width: 100%

@@ -1,0 +1,197 @@
+// STYLING FOR PAYMENT PAGE
+@use "./_variables.sass" as var
+
+.form-content
+	gap: 40px
+	display: flex
+	flex-direction: column
+
+	&__method
+
+		&-label
+			gap: 5px
+			display: flex
+			cursor: pointer
+			align-items: center
+
+			& svg
+				width: 40px
+				height: 30px
+
+		&-holder
+			gap: 20px
+			display: flex
+			align-items: center
+
+	&__collect
+
+		&-input:nth-of-type(n+2)
+			margin-top: 25px
+
+		&-label
+			margin-left: 5px
+			font-weight: bold
+
+		&-text span
+			color: black
+			display: block
+			margin-left: 20px
+
+	&__delivery
+
+		&-iframe
+			width: 100%
+			border: none
+			height: 300px
+			background: black
+			margin-bottom: 25px
+
+		&-label
+			cursor: pointer
+			margin-left: 20px
+
+		&-logo
+			height: auto
+			width: 100px
+
+		&-title
+			font-weight: bold
+			margin: 30px 0 15px
+
+		&-button
+			cursor: pointer
+			font-size: 16px
+			padding: 7px 10px
+			border-radius: 5px
+			margin-right: 10px
+			background: transparent
+			color: var.$primary-grey-blue-color
+			border: 2px solid var.$primary-grey-blue-color
+
+			&.active
+				font-weight: normal
+				color: var.$primary-white-color
+				background: var.$primary-grey-blue-color
+
+	&__agreements
+		left: 0px
+		gap: 10px
+		bottom: -75px
+		display: grid
+		position: absolute
+		align-items: center
+		grid-template-columns: 1fr 15fr
+
+		& input
+			width: 12px
+			height: 12px
+			border-radius: 5px
+			align-content: center
+
+	& p
+		color: var.$primary-grey-blue-color
+
+	&__price
+		display: flex
+		padding-bottom: 10px
+		justify-content: space-between
+
+		&-total
+			padding: 0
+			display: block
+			text-align: right
+
+			& span
+				font-weight: bold
+
+	&__flex
+		gap: 25px
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+
+	&__label
+		display: block
+		font-size: 16px
+		font-weight: 500
+
+	&__wrapper
+		gap: 15px
+		display: grid
+		grid-template-columns: 1fr 3fr
+
+	&__input
+		width: 100%
+		border: none
+		padding: 10px
+		border-radius: 5px
+		margin-bottom: 15px
+		box-shadow: 2px 4px 4px 0px #00000025
+		background: var.$primary-light-grey-color
+
+	&__box
+		width: 53dvw
+		padding: 25px
+		min-width: 380px
+		max-width: 600px
+		position: relative
+		height: fit-content
+		background: var.$primary-white-color
+		box-shadow: 2px 4px 4px 0px #00000025
+
+		&-prices
+			max-width: 450px
+			margin-bottom: 105px
+
+	&__subprice
+		text-align: right
+		margin-top: 10px
+
+		& span
+			font-weight: bold
+
+	&__list
+		gap: 10px
+		display: flex
+		flex-direction: column
+
+		&-item
+			display: flex
+			align-items: center
+
+			&-title
+				padding-left: 10px
+
+			&-price
+				margin-left: auto
+
+			&::before
+				width: 5px
+				height: 5px
+				content: ""
+				display: inline
+				background: black
+				border-radius: 5px
+
+	@media screen and (max-width: 1155px)
+		&__info h3
+			text-align: center
+
+		&__flex, &__method, &__delivery
+			display: flex
+			align-items: center
+			flex-direction: column
+			justify-content: center
+
+.flex-inherit
+	display: inherit
+	flex-direction: column
+
+.gray-line
+	height: 2px
+	width: 100%
+	margin: 25px 0
+	background: #D2D2D250
+
+.smaller-title
+	font-size: 26px

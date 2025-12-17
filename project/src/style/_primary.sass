@@ -1,0 +1,49 @@
+// STYLING FOR SECTIONS
+@use "./_variables.sass" as var
+
+body#root
+	background: var.$primary-background-greyish-color
+
+	& .main-content__welcome-image
+		width: 100dvw
+		height: 80dvw
+		min-height: 400px
+		max-height: 635px
+		background-size: cover
+		background-repeat: no-repeat
+		background-image: url("/images/primary.jpg")
+
+		@media screen and (min-width: 1250px)
+			&-image
+				height: auto
+				width: 100dvw
+
+// PAGE ARTICLE
+.page-article
+	position: relative
+	padding: 100px 3dvw
+	color: var.$primary-light-grey-color
+	background: var.$background-black-color
+
+	&__text
+		margin-top: 25px
+
+	&>p,&>h1
+		width: 47dvw
+
+	&__section
+		top: 100px
+		right: 3dvw
+		width: 300px
+		position: absolute
+
+		&-text
+			display: flex
+			margin-top: 40px
+			flex-direction: column
+
+			&:last-of-type
+				margin-top: 20px
+
+			& .bold
+				font-weight: bold
