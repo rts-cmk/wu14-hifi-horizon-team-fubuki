@@ -8,12 +8,12 @@ export function CreateInvoice() {
 
 export function findCookie(name = "cart", list = true) {
 	let namedCookie = document.cookie.split(" ").find(finder => finder.includes(name))
-	let content = namedCookie.split("=")[1]
+	let content = namedCookie.split("=")[1].replaceAll(";", "")
 
 	if (list) {
 		return content.split(",")
 	} else {
-		return content.replaceAll(";", "")
+		return content
 	}
 }
 

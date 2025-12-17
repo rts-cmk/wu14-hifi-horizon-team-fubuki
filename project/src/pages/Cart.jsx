@@ -1,5 +1,5 @@
-import { RetrieveCartItems } from "../helpers/cartHandler"
 import PaymentProgress from "../components/PaymentProgress.jsx"
+import { RetrieveCartItems } from "../helpers/cartHandler"
 import CartItem from "../components/CartItem.jsx"
 import { useState, useEffect } from "react"
 import { Link } from "react-router"

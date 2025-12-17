@@ -1,9 +1,10 @@
 import { HandleCardItems, RetrieveCartItems } from "../helpers/cartHandler"
-import { Link, useLoaderData } from "react-router"
+import { Link, useLoaderData, useOutletContext } from "react-router"
 import { GiSettingsKnobs } from "react-icons/gi"
 import { useEffect, useState } from "react"
 
 export default function Products() {
+    const [items, setItems] = useOutletContext()
     const [cart, setCart] = useState([])
     const products = useLoaderData()
 
@@ -20,16 +21,13 @@ export default function Products() {
     function addToCart(data) {
         HandleCardItems(data.id, 1, data.price - ((data.price / 100) * data.discount), 1)
 
+        setItems(items + 1)
         isAlreadyInCart(data.id)
     }
 
     useEffect(() => {
         products.forEach(product => isAlreadyInCart(product.id))
     }, [products])
-
-    useEffect(() => {
-        console.log(cart)
-    }, [cart])
 
     return (
         <section className="section-ctgrs__products-section">
