@@ -1,9 +1,35 @@
+import { HandleCardItems, RetrieveCartItems } from "../helpers/cartHandler"
 import { Link, useLoaderData } from "react-router"
 import { GiSettingsKnobs } from "react-icons/gi"
+import { useEffect, useState } from "react"
 
 export default function Products() {
-
+    const [cart, setCart] = useState([])
     const products = useLoaderData()
+
+    function isAlreadyInCart(id) {
+        const cartItems = RetrieveCartItems()
+
+        if (cartItems.find(item => item.split("-")[0] == id)) {
+            setCart([...cart, id])
+        } else {
+            setCart(cart.filter(val => val != id))
+        }
+    }
+
+    function addToCart(data) {
+        HandleCardItems(data.id, 1, data.price - ((data.price / 100) * data.discount), 1)
+
+        isAlreadyInCart(data.id)
+    }
+
+    useEffect(() => {
+        products.forEach(product => isAlreadyInCart(product.id))
+    }, [products])
+
+    useEffect(() => {
+        console.log(cart)
+    }, [cart])
 
     return (
         <section className="section-ctgrs__products-section">
@@ -18,7 +44,16 @@ export default function Products() {
                             <p className="section-ctgrs__products-p">${(product.price - product.price / 100 * product.discount).toFixed(2)} <span className="section-ctgrs__products-span">{product.price}</span></p>
                             <div className="section-ctgrs__products-div-discount">{Math.round(product.discount)}%</div>
                             <div className="section-ctgrs__products-div-action">
-                                <button className="section-ctgrs__products-link">Add to cart</button>
+                                {(
+                                    cart.indexOf(product.id) < 0 &&
+                                    <button className="section-ctgrs__products-link"
+                                        onClick={() => addToCart(product)}>Add to cart</button>
+                                    ||
+                                    <Link className="section-ctgrs__products-link"
+                                        to={`/details/${product.id}`}>Open Details</Link>
+                                )}
+
+
                                 <p className={`section-ctgrs__products-stock-status ${product.status != 0 ? "stock" : ""}`}>
                                     {(product.status != 0 ? "In stock" : "Out of stock")}
                                 </p>
