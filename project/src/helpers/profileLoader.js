@@ -1,3 +1,5 @@
+import { findCookie } from "./cartHandler"
+
 export default async function profileLoader() {
 	try {
 		if (!document.cookie.includes("login")) {
@@ -7,7 +9,7 @@ export default async function profileLoader() {
 		const response = await fetch("http://localhost:3000/api/account", {
 			headers: {
 				"request-type": "info",
-				"request-key": document.cookie.split(" ")[2] || ""
+				"request-key": findCookie("login", false) || ""
 			}
 		})
 
