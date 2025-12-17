@@ -1,6 +1,35 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 export default function LoginAccount() {
+    const navigate = useNavigate()
+
+    async function beginLogin(event) {
+        event.preventDefault()
+
+        fetch("http://localhost:3000/api/account", {
+            headers: {
+                "request-type": "login",
+                "email": event.target.email.value,
+                "password": event.target.password.value
+            }
+        })
+            .then(repsonse => repsonse.json())
+            .then(data => {
+                if (data.success === true) {
+                    if (event.target.rememberme.checked === true) {
+                        document.cookie = `login=${data.loginKey};path=/`
+                    } else {
+                        const expirationTime = new Date(Date.now() + 10 * 60 * 1000).toUTCString()
+                        document.cookie = `login=${data.loginKey};path=/;expires=${expirationTime}`
+                    }
+
+                    setTimeout(() => {
+                        navigate("/profile")
+                        window.location.reload()
+                    }, 500)
+                }
+            })
+    }
 
     return (
         <main className="main-content">
@@ -10,7 +39,7 @@ export default function LoginAccount() {
                 <div className="section-login__div">
                     <h3 className="section-login__h3">Registered Customers</h3>
                     <p className="section-login__p">If you have an account, sign in with your email address.</p>
-                    <form action="" className="section-login__form">
+                    <form action="" className="section-login__form" onSubmit={event => beginLogin(event)}>
 
                         <label htmlFor="email" >Email <span className="req">*</span></label>
                         <input type="text" id="email" name="email" required placeholder="johndoe@hotmail.com" />
@@ -19,7 +48,7 @@ export default function LoginAccount() {
                         <input type="password" id="password" name="password" required placeholder="***********" />
 
                         <div className="section-login__form--checkbox remember-me">
-                            <input type="checkbox" id="rememberme" name="rememberme" required />
+                            <input type="checkbox" id="rememberme" name="rememberme" />
                             <label htmlFor="rememberme" >Remember me</label>
                         </div>
 
@@ -30,9 +59,9 @@ export default function LoginAccount() {
             </section>
 
             <section className="section-login section-login--create-account">
-                    <h3 className="section-login__h3">NEW CUSTOMER</h3>
-                    <p className="section-login__p">Creating an account has many benefits: check out faster, track orders and more.</p>
-                    <Link to="/profile/create" className="section-login__form--btn">Create an Account</Link>
+                <h3 className="section-login__h3">NEW CUSTOMER</h3>
+                <p className="section-login__p">Creating an account has many benefits: check out faster, track orders and more.</p>
+                <Link to="/profile/create" className="section-login__form--btn">Create an Account</Link>
             </section>
         </main>
     )
