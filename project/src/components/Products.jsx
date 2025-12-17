@@ -3,7 +3,7 @@ import { Link, useLoaderData, useOutletContext } from "react-router"
 import { GiSettingsKnobs } from "react-icons/gi"
 import { useEffect, useState } from "react"
 
-export default function Products() {
+export default function Products({ brands, colors, min, max }) {
     const [items, setItems] = useOutletContext()
     const [cart, setCart] = useState([])
     const products = useLoaderData()
@@ -20,9 +20,50 @@ export default function Products() {
 
     function addToCart(data) {
         HandleCardItems(data.id, 1, data.price - ((data.price / 100) * data.discount), 1)
-
         setItems(items + 1)
         isAlreadyInCart(data.id)
+    }
+
+    function shouldShowProduct(product) {
+        const discountedPrice = product.price - (product.price / 100) * product.discount
+        let priceMatch = discountedPrice >= min && discountedPrice <= max
+        let brandMatch = false
+        let colorMatch = false
+
+        if (brands.length === 0) {
+            brandMatch = true
+        }
+
+        if (colors.length === 0) {
+            colorMatch = true
+        }
+
+        if (brands.length !== 0 || colors.length !== 0) {
+            brands.forEach(value => {
+                if (value.toLowerCase() === product.brand.toLowerCase()) {
+                    brandMatch = true
+                }
+            })
+
+            colors.forEach(value => {
+                if (product.fields[0].list.toString().toLowerCase().includes(value.toLowerCase())) {
+                    colorMatch = true
+                }
+            })
+        }
+
+        if (priceMatch === false) {
+            brandMatch = false
+            colorMatch = false
+        } else if (brandMatch === false) {
+            colorMatch = false
+            priceMatch = false
+        } else if (colorMatch === false) {
+            priceMatch = false
+            brandMatch = false
+        }
+
+        return brandMatch || colorMatch || priceMatch
     }
 
     useEffect(() => {
@@ -32,37 +73,30 @@ export default function Products() {
     return (
         <section className="section-ctgrs__products-section">
             <ul className="section-ctgrs__products-ul">
-                {
-                    products.map((product) => {
-                        return <li key={`product-${product.name}`} className="section-ctgrs__products-li">
-                            <figure className="section-ctgrs__products-figure">
-                                <img src={`/images/${product.images[0]}`} alt={product.images[0]} className="section-ctgrs__products-img" />
-                            </figure>
-                            <h3 className="section-ctgrs__products-h3"><Link to={`/details/${product.id}`}>{product.name}</Link></h3>
-                            <p className="section-ctgrs__products-p">${(product.price - product.price / 100 * product.discount).toFixed(2)} <span className="section-ctgrs__products-span">{product.price}</span></p>
-                            <div className="section-ctgrs__products-div-discount">{Math.round(product.discount)}%</div>
-                            <div className="section-ctgrs__products-div-action">
-                                {(
-                                    cart.indexOf(product.id) < 0 &&
-                                    <button className="section-ctgrs__products-link"
-                                        onClick={() => addToCart(product)}>Add to cart</button>
-                                    ||
-                                    <Link className="section-ctgrs__products-link"
-                                        to={`/details/${product.id}`}>Open Details</Link>
-                                )}
+                {products.filter(shouldShowProduct).map((product) => {
+                    const discountedPrice = product.price - (product.price / 100) * product.discount
 
-
-                                <p className={`section-ctgrs__products-stock-status ${product.status != 0 ? "stock" : ""}`}>
-                                    {(product.status != 0 ? "In stock" : "Out of stock")}
-                                </p>
-                            </div>
-
-                            <Link to={`/compare/${product.id}`} className="section-ctgrs__products-compare-link">Compare <GiSettingsKnobs /> </Link>
-                        </li>
-                    })
-                }
+                    return <li key={`product-${product.name}`} className="section-ctgrs__products-li">
+                        <figure className="section-ctgrs__products-figure">
+                            <img src={`/images/${product.images[0]}`} alt={product.images[0]} className="section-ctgrs__products-img" />
+                        </figure>
+                        <h3 className="section-ctgrs__products-h3"><Link to={`/details/${product.id}`}>{product.name}</Link></h3>
+                        <p className="section-ctgrs__products-p">${discountedPrice.toFixed(2)} <span className="section-ctgrs__products-span">{product.price}</span></p>
+                        <div className="section-ctgrs__products-div-discount">{Math.round(product.discount)}%</div>
+                        <div className="section-ctgrs__products-div-action">
+                            {cart.indexOf(product.id) < 0 ? (
+                                <button className="section-ctgrs__products-link" onClick={() => addToCart(product)}>Add to cart</button>
+                            ) : (
+                                <Link className="section-ctgrs__products-link" to={`/details/${product.id}`}>Open Details</Link>
+                            )}
+                            <p className={`section-ctgrs__products-stock-status ${product.status != 0 ? "stock" : ""}`}>
+                                {(product.status != 0 ? "In stock" : "Out of stock")}
+                            </p>
+                        </div>
+                        <Link to={`/compare/${product.id}`} className="section-ctgrs__products-compare-link">Compare <GiSettingsKnobs /> </Link>
+                    </li>
+                })}
             </ul>
         </section>
-
     )
 }
