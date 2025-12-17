@@ -10,7 +10,7 @@ export default function Profile() {
 			{(ProfileData.login &&
 				<main className="main-content">
 					<section className="content-profile-sec">
-						<ProfileInfo />
+						<ProfileInfo data={ProfileData.result} />
 					</section>
 				</main>)}
 

@@ -6,16 +6,18 @@ import { MdEdit } from "react-icons/md";
 import { HiMail } from "react-icons/hi";
 import { useState } from "react";
 
-export default function ProfileContent() {
-	const ProfileData = useRouteLoaderData("profile")
-
+export default function ProfileContent({ content }) {
 	const [editId, setEditId] = useState(null)
 
-	const [username, setUsername] = useState("John Doe")
-	const [nummer, setNummer] = useState("7875 149753")
-	const [email, setEmail] = useState("johndoe@hotmail.com")
-	const [password, setPassword] = useState("********")
-	const [adress, setAdress] = useState("61 Church St Berwick-upon-Tweed Northumberland TD15 1EE United Kingdom")
+	console.log(content)
+
+	const [username, setUsername] = useState(content.name || "Unknown")
+	const [nummer, setNummer] = useState(content.phone || "0000000000")
+	const [email, setEmail] = useState(content.email || "unknown@mail.com")
+	const [password, setPassword] = useState(content.password || "********")
+	const [adress, setAdress] = useState(`
+	${content.address.number} ${content.address.street} ${content.address.city} ${content.address.zip}
+	${content.address.country}`)
 
 	const toggleEdit = (id) => {
 		setEditId(prev => (prev === id ? null : id))
@@ -89,7 +91,7 @@ export default function ProfileContent() {
 							{editId === "password" ? (
 								<input className="content-profile-sec__li-input" type="text" value={password} onChange={(e) => setPassword(e.target.value)} />
 							) : (
-								<span className="content-profile-sec__li-span-info">{password}</span>
+								<span className="content-profile-sec__li-span-info">********</span>
 							)}
 
 						</div>
@@ -107,7 +109,7 @@ export default function ProfileContent() {
 							{editId === "adress" ? (
 								<input className="content-profile-sec__li-input" type="text" value={adress} onChange={(e) => setAdress(e.target.value)} />
 							) : (
-								<span className="content-profile-sec__li-span-info">{adress}</span>
+								<span className="content-profile-sec__li-span-info">{(adress)}</span>
 							)}
 
 						</div>
