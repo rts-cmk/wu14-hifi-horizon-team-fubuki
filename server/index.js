@@ -183,10 +183,10 @@ SERVER.get("/api/account", (request, response) => {
 			response.status(400).json({ success: false, message: "your request does not have the required fields" })
 		}
 
-		if (!ACCOUNTS.find(acc => acc.email == EMAIL.split("=")[1])) {
+		if (!ACCOUNTS.find(acc => acc.email == EMAIL)) {
 			response.status(404).json({ success: false, message: "the account does not exist" })
 		} else {
-			const ACC = ACCOUNTS.find(acc => acc.email == EMAIL.split("=")[1])
+			const ACC = ACCOUNTS.find(acc => acc.email == EMAIL)
 			if (ACC.auth === AUTH) {
 				response.status(202).json({
 					success: true,
