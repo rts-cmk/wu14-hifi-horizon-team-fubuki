@@ -1,5 +1,4 @@
 import { FaLock, FaSave, FaUser } from "react-icons/fa";
-import { useRouteLoaderData } from "react-router";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoCallSharp } from "react-icons/io5";
 import { MdEdit } from "react-icons/md";
@@ -8,8 +7,6 @@ import { useState } from "react";
 
 export default function ProfileContent({ content }) {
 	const [editId, setEditId] = useState(null)
-
-	console.log(content)
 
 	const [username, setUsername] = useState(content.name || "Unknown")
 	const [nummer, setNummer] = useState(content.phone || "0000000000")
@@ -22,7 +19,6 @@ export default function ProfileContent({ content }) {
 	const toggleEdit = (id) => {
 		setEditId(prev => (prev === id ? null : id))
 	}
-
 
 	return (
 		<section className="content-profile-sec__section-info">

@@ -1,5 +1,9 @@
 @use "variables" as var
-    
+
+// PHONE STYLES
+@use "./_menu.sass"
+
+// DEFAULT STYLES
 .header
     display: flex
     justify-content: space-between
@@ -9,11 +13,12 @@
     color: var.$primary-font-white-color
 
     &__section-left
+        gap: 2rem
+        z-index: 101
         display: flex
         flex-wrap: wrap
         align-items: center
-        gap: 2rem
-    
+
     &__ul
         list-style: none
         display: flex
@@ -24,38 +29,47 @@
         font-weight: bold
         transition: all 0.3s ease
 
-
     &__div-search
-        position: relative
         margin: 0 1.5rem
 
     &__input-search
         height: 38px
-        width: 200px
-        padding: 0 10px
         border: none
+        width: 20dvw
+        max-width: 300px
+        min-width: 200px
         border-radius: 3px
+        padding: 0 30px 0 10px
         background-color: var.$primary-light-grey-color
 
     &__icon-search
         position: absolute
         width: 22px
         height: 22px
-        top: 30%
+        top: -15px
         right: 5px
         color: var.$primary-black-color
         cursor: pointer
 
     &__section-right
+        gap: 1.5rem
+        z-index: 100
         display: flex
         align-items: center
-        gap: 1.5rem
+
+    @media screen and (max-width: 600px)
+        &__section-right
+            box-shadow: 0px 0px 4px 0px #ffffff85
+
+        &__section-left
+            box-shadow: -3px -3px 4px -3px #ffffff85
 
     &__link-profile, &__link-add-to-cart
+        border-bottom: 2px solid transparent
         color: var.$primary-font-white-color
+        transition: border-bottom 0.25s
         font-size: 1.5rem
         cursor: pointer
-
 
     &__link-add-to-cart
         position: relative
@@ -78,6 +92,7 @@
     &__btn-search
         all: unset
         cursor: pointer
+        position: relative
 
 .active
     font-weight: bold

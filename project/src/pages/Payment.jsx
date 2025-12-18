@@ -30,7 +30,7 @@ export default function Payment() {
 		<main className="cart-content">
 			<PaymentProgress currentStep={2} />
 
-			<form className="cart-content__form form-content" action="/card/invoice">
+			<form className="cart-content__form form-content" action="/cart/invoice">
 
 				<YourInfo products={products} cookie={RetrieveCartItems()} />
 

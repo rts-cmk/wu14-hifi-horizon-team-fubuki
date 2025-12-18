@@ -1,9 +1,9 @@
 import { HandleCardItems, RetrieveCartItems } from "../helpers/cartHandler"
+import { Link, useLoaderData, useOutletContext } from "react-router"
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa"
 import { IoMdRemove, IoMdAdd } from "react-icons/io"
-import { Link, useLoaderData, useOutletContext } from "react-router"
 import { GiSettingsKnobs } from "react-icons/gi"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
 export default function ProductDetails() {
@@ -57,6 +57,10 @@ export default function ProductDetails() {
 			setCart(false)
 		}
 	}
+
+	useEffect(() => {
+		isAlreadyInCart()
+	}, [])
 
 	return (
 		<main className="product-content">
@@ -124,7 +128,7 @@ export default function ProductDetails() {
 						</span>
 
 						<span className={`product-content__info-stock ${(productData.stock != 0 ? "stock" : "")}`}>
-							{(productData.stock != 0 ? "In stock" : "Out of stock")}
+							{(productData.stock != 0 ? `${productData.stock} products in stock` : "Out of stock")}
 						</span>
 					</p>
 

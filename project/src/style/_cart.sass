@@ -1,5 +1,6 @@
 // STYLING FOR CART PAGE
 @use "./_variables.sass" as var
+@use 'sass:color'
 
 .cart-content
 	display: flex
@@ -31,7 +32,7 @@
 			background: var.$primary-greyish-color
 
 		&.enabled:hover
-			background: darken(var.$primary-button-orange-color, 5%)
+			background: color.adjust(var.$primary-button-orange-color, $lightness: -5%)
 
 	&__total
 		margin: 25px 0
@@ -52,10 +53,10 @@
 
 	&__item
 		height: 150px
-		padding: 25px 50px
 		display: inherit
 		position: relative
 		border-radius: 5px
+		padding: 25px 50px
 		align-items: center
 		justify-content: space-between
 		background: var.$primary-white-color
@@ -123,3 +124,13 @@
 		&-image
 			height: auto
 			width: 200px
+
+	@media screen and (max-width: 867px)
+		&__item
+			gap: 20px
+			flex-wrap: wrap
+			height: fit-content
+			justify-content: center
+
+			&-price
+				text-align: center
