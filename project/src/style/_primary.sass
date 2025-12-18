@@ -30,6 +30,7 @@ body#root
 
 	&>p,&>h1
 		width: 47dvw
+		min-width: 300px
 
 	&__section
 		top: 100px
@@ -39,6 +40,7 @@ body#root
 
 		&-text
 			display: flex
+			min-width: 300px
 			margin-top: 40px
 			flex-direction: column
 
@@ -47,3 +49,11 @@ body#root
 
 			& .bold
 				font-weight: bold
+
+@media screen and (max-width: 768px)
+	.page-article
+		padding: 100px 10dvw
+
+		&__section
+			position: unset
+			margin-top: 50px
