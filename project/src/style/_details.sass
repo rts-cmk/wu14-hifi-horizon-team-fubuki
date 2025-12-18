@@ -183,6 +183,7 @@
 
 	&__amount
 		width: 22px
+		text-align: center
 
 		&s
 			gap: 30px
@@ -204,7 +205,10 @@
 	&__button
 
 		&s-holder
+			gap: 10px
 			display: flex
+			align-content: center
+			flex-wrap: wrap
 			margin-top: 30px
 			justify-content: space-between
 
@@ -234,6 +238,23 @@
 			transform: translateY(30%)
 
 	@media screen and (max-width: 867px)
+
+		&__spec
+			height: fit-content
+
+			&s
+				margin: 0px
+				margin-top: 10px
+
+			& p
+				width: 50%
+
+		&__button
+			&s-holder
+				justify-content: center
+
+			&-order
+				width: 100%
 
 		&__image
 

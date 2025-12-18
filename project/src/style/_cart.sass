@@ -53,10 +53,10 @@
 
 	&__item
 		height: 150px
-		padding: 25px 50px
 		display: inherit
 		position: relative
 		border-radius: 5px
+		padding: 25px 50px
 		align-items: center
 		justify-content: space-between
 		background: var.$primary-white-color
@@ -124,3 +124,13 @@
 		&-image
 			height: auto
 			width: 200px
+
+	@media screen and (max-width: 867px)
+		&__item
+			gap: 20px
+			flex-wrap: wrap
+			height: fit-content
+			justify-content: center
+
+			&-price
+				text-align: center
