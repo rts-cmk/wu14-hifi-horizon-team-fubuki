@@ -128,7 +128,7 @@ export default function ProductDetails() {
 						</span>
 
 						<span className={`product-content__info-stock ${(productData.stock != 0 ? "stock" : "")}`}>
-							{(productData.stock != 0 ? "In stock" : "Out of stock")}
+							{(productData.stock != 0 ? `${productData.stock} products in stock` : "Out of stock")}
 						</span>
 					</p>
 
