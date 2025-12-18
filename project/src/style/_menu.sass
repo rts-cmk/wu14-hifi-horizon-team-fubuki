@@ -1,0 +1,115 @@
+// EXTRA STYLING FOR HEADER COMPONENT
+@use "./_variables.sass" as var
+
+.phone-only
+	display: none
+
+@media screen and (max-width: 600px)
+	.phone-only
+		display: block
+
+	header
+		&.header
+			order: 1
+			height: 95px
+			position: relative
+			background: transparent
+
+		&.header .header__ul
+			gap: 50px
+
+		&.header .header__section-left
+			gap: 50px
+
+		&.header .header__div-search
+			left: 0
+			margin: 0px
+			z-index: 99
+			bottom: 95px
+			height: 45px
+			width: 100dvw
+			position: fixed
+			overflow: hidden
+			transition: opacity 0.25s, height 0.25s
+
+			&.phone-hidden
+				opacity: 0
+				height: 0px
+
+			& button svg
+				width: 15px
+				right: 15px
+
+			& input
+				height: 45px
+				width: 100dvw
+				border-radius: 0px
+				padding: 10px 35px 10px 10px
+
+	.header
+
+		&__ul
+			align-items: center
+			flex-direction: column
+
+		&__phone
+
+			&-search
+				border: none
+				cursor: pointer
+				background: transparent
+
+				& svg
+					width: 23px
+					height: 23px
+					transition: color 0.25s
+					color: var.$primary-white-color
+
+				&.active svg
+					color: var.$primary-orange-color
+
+			&-menu
+				width: 25px
+				height: 20px
+				border: none
+				display: flex
+				cursor: pointer
+				flex-direction: column
+				background: transparent
+				transform: translateY(-25%)
+				justify-content: space-between
+
+				& div
+					border-radius: 10px
+					transition: border-color 0.25s
+					border: 0.5px solid var.$primary-white-color
+
+				&.active div
+					border-color: var.$primary-orange-color
+
+		&__section
+			&-left
+				right: 0px
+				bottom: 95px
+				width: 50dvw
+				height: 100dvw
+				position: fixed
+				overflow: hidden
+				padding: 10px 5px
+				flex-direction: column
+				justify-content: center
+				transition: height 0.25s, opacity 0.25s
+				background: var.$primary-black-color
+
+				&.phone-hidden
+					opacity: 0
+					height: 0px
+
+			&-right
+				bottom: 0%
+				height: 95px
+				width: 100dvw
+				position: fixed
+				padding: 1rem 10dvw
+				justify-content: space-between
+				background-color: var.$background-black-color

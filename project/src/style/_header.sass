@@ -1,5 +1,9 @@
 @use "variables" as var
 
+// PHONE STYLES
+@use "./_menu.sass"
+
+// DEFAULT STYLES
 .header
     display: flex
     justify-content: space-between
@@ -25,7 +29,6 @@
         transition: all 0.3s ease
 
     &__div-search
-        position: relative
         margin: 0 1.5rem
 
     &__input-search
@@ -40,7 +43,7 @@
         position: absolute
         width: 22px
         height: 22px
-        top: 30%
+        top: -15px
         right: 5px
         color: var.$primary-black-color
         cursor: pointer
@@ -78,6 +81,7 @@
     &__btn-search
         all: unset
         cursor: pointer
+        position: relative
 
 .active
     font-weight: bold
