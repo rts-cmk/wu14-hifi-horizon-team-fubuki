@@ -6,9 +6,19 @@ export default function YourInfo({ products, cookie }) {
 	const [vat, setVat] = useState(0)
 
 	useEffect(() => {
-		cookie.forEach((item) => {
-			setTotal(total + Number(item.split("-")[2]) * Number(item.split("-")[1]))
-		})
+		if (!cookie || cookie.length === 0) {
+			setTotal(0)
+			return
+		}
+
+		const totalSum = cookie.reduce((acc, item) => {
+			const parts = item.split("-")
+			const qty = Number(parts[1]) || 0
+			const price = Number(parts[2]) || 0
+			return acc + qty * price
+		}, 0)
+
+		setTotal(totalSum)
 	}, [])
 
 	return (

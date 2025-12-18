@@ -38,9 +38,19 @@ export default function Invoice() {
 
 		fetchProducts()
 
-		RetrieveCartItems().forEach((item) => {
-			setTotalPrice(totalPrice + Number(item.split("-")[2]) * Number(item.split("-")[1]))
-		})
+		if (!RetrieveCartItems() || RetrieveCartItems().length === 0) {
+			setTotal(0)
+			return
+		}
+
+		const totalSum = RetrieveCartItems().reduce((acc, item) => {
+			const parts = item.split("-")
+			const qty = Number(parts[1]) || 0
+			const price = Number(parts[2]) || 0
+			return acc + qty * price
+		}, 0)
+
+		setTotalPrice(totalSum)
 	}, [])
 
 	return (
