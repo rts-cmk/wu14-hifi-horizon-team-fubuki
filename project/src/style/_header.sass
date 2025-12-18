@@ -13,10 +13,11 @@
     color: var.$primary-font-white-color
 
     &__section-left
+        gap: 2rem
+        z-index: 101
         display: flex
         flex-wrap: wrap
         align-items: center
-        gap: 2rem
 
     &__ul
         list-style: none
@@ -51,9 +52,17 @@
         cursor: pointer
 
     &__section-right
+        gap: 1.5rem
+        z-index: 100
         display: flex
         align-items: center
-        gap: 1.5rem
+
+    @media screen and (max-width: 600px)
+        &__section-right
+            box-shadow: 0px 0px 4px 0px #ffffff85
+
+        &__section-left
+            box-shadow: -3px -3px 4px -3px #ffffff85
 
     &__link-profile, &__link-add-to-cart
         border-bottom: 2px solid transparent
