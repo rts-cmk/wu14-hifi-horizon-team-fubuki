@@ -6,9 +6,20 @@ export function CreateInvoice() {
 
 }
 
+export function findCookie(name = "cart", list = true) {
+	let namedCookie = document.cookie.split(" ").find(finder => finder.includes(name))
+	let content = namedCookie.split("=")[1].replaceAll(";", "")
+
+	if (list) {
+		return content.split(",")
+	} else {
+		return content
+	}
+}
+
 export function RetrieveCartItems() {
 	if (document.cookie != "") {
-		let cartItems = document.cookie.split(";")[1].split("=")[1].split(",")
+		let cartItems = findCookie()
 
 		if (cartItems[0] == "null") {
 			cartItems = []
@@ -21,7 +32,7 @@ export function RetrieveCartItems() {
 }
 
 export function HandleCardItems(itemID = 0, quantity = 0, price = 0, color = "default") {
-	let cartItems = document.cookie.split(";")[1].split("=")[1].split(",")
+	let cartItems = findCookie()
 	let newCartItems = []
 
 	if (cartItems[0] == "null") {

@@ -1,4 +1,5 @@
 @use "variables" as var
+@use 'sass:color'
 
 .section-login
     margin: 3dvw
@@ -86,19 +87,19 @@
         margin-bottom: 20px
 
     &__form--btn
-        margin-top: 20px
-        padding: 10px
-        background-color: var.$primary-button-orange-color
-        color: var.$primary-white-color
-        font-size: 18px
         border: none
-        cursor: pointer
-        transition: background-color .25s ease
         width: 250px
+        padding: 10px
+        cursor: pointer
+        font-size: 18px
+        margin-top: 20px
+        color: var.$primary-white-color
+        transition: background 0.25s ease
+        background: var.$primary-button-orange-color
         box-shadow: 0 4px 6px var.$primary-shadow-color
 
         &:hover
-            background-color: darken(var.$primary-button-orange-color, 10%)
+            background: color.adjust(var.$primary-button-orange-color, $lightness: -5%)
 
     &__p
         font-size: 14px

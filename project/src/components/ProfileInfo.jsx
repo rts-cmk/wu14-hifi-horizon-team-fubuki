@@ -4,8 +4,7 @@ import ProfileOrders from "./ProfileOrders";
 import ProfileContent from "./ProfileContent";
 
 
-export default function ProfileInfo() {
-
+export default function ProfileInfo({ data = {} }) {
     const [selectedButton, setSelectedButton] = useState("profile");
 
     const contentRef = useRef(null);
@@ -46,13 +45,13 @@ export default function ProfileInfo() {
             </div>
 
             <section ref={contentRef} className="content-profile-sec__main-section-info">
-            {selectedButton === "profile" && (
-                <ProfileContent />
-            )}
+                {selectedButton === "profile" && (
+                    <ProfileContent content={data} />
+                )}
 
-            {selectedButton === "orders" && (
-                <ProfileOrders />
-            )}
+                {selectedButton === "orders" && (
+                    <ProfileOrders content={data.orders || []} />
+                )}
             </section>
         </>
     );

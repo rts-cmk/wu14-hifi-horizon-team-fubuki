@@ -187,7 +187,6 @@ SERVER.get("/api/account", (request, response) => {
 			response.status(404).json({ success: false, message: "the account does not exist" })
 		} else {
 			const ACC = ACCOUNTS.find(acc => acc.email == EMAIL)
-
 			if (ACC.auth === AUTH) {
 				response.status(202).json({
 					success: true,

@@ -12,10 +12,6 @@ export default function Layout() {
 		setItems(RetrieveCartItems().length)
 	}, [])
 
-	useEffect(() => {
-		console.log(items)
-	}, [items])
-
 	return (
 		<>
 			<Header items={items} />
