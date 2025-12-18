@@ -108,7 +108,7 @@ export default function Products({ brands, colors, min, max, discount, param }) 
                         </li>
                     })
                 ) : (
-                    <li>Could not find any products here...</li>
+                    <li className="section-ctgrs__nothing-product"><p>Could not find any products here...</p></li>
                 )}
             </ul>
         </section>

@@ -1,10 +1,17 @@
+import { Link, NavLink, useNavigate } from "react-router";
+import Logo from "../assets/icons/logo.svg?react";
+import { FaCartShopping } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
-import { FaCartShopping } from "react-icons/fa6";
-import { Link, NavLink } from "react-router";
-import Logo from "../assets/icons/logo.svg?react";
 
 export default function Header({ items = 0 }) {
+  const navigate = useNavigate()
+
+  function HandleSearch(event) {
+    event.preventDefault()
+
+    navigate(encodeURI(`/products?search=${event.target.search.value}`))
+  }
 
   return (
     <header className="header">
@@ -21,7 +28,7 @@ export default function Header({ items = 0 }) {
         </nav>
       </div>
       <div className="header__section-right">
-        <form className="header__div-search" action="/products">
+        <form className="header__div-search" action="/products" onSubmit={event => HandleSearch(event)}>
           <input className="header__input-search" type="text" name="search" placeholder="Search product..." required />
           <button className="header__btn-search"><FaSearch className="header__icon-search" /></button>
         </form>
