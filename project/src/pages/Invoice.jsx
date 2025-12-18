@@ -11,14 +11,15 @@ export default function Invoice() {
 	const [searchParams] = useSearchParams()
 	const [products, setProducts] = useState([])
 
+	const [vat, setVat] = useState(0)
+	const [delivery, setDelivery] = useState(4.99)
+
 	const fullname = searchParams.get("fullname") ?? ""
 	const zip = searchParams.get("zip") ?? ""
 	const city = searchParams.get("city") ?? ""
 	const address = searchParams.get("address") ?? ""
 	const email = searchParams.get("email") ?? ""
 	const phone = searchParams.get("phone") ?? ""
-	const terms = searchParams.get("terms") ?? ""
-	const card = searchParams.get("card") ?? ""
 
 	useEffect(() => {
 
@@ -43,9 +44,9 @@ export default function Invoice() {
 	}, [])
 
 	return (
-		<main className="cart-content">
+		<main className="invoice-content">
 			<PaymentProgress currentStep={3} />
-			<h3 className="cart-content__title-center">Thank you for your order!</h3>
+			<h3 className="invoice-content__title-center">Thank you for your order!</h3>
 			<section className="section-invoice">
 				<section className="section-invoice__sec-info">
 					<div className="section-invoice__div-info-items">
@@ -65,7 +66,7 @@ export default function Invoice() {
 							<p>M: {email}</p>
 						</div>
 					</div>
-					<div className="section-invoice__div-info-item">
+					<div className="section-invoice__div-info-left-item">
 						<Logo className="section-invoice__div-info-logo" />
 						<h4>44 Cow Wynd, Falkirk </h4>
 						<h4>Central Region, FK1 1PU</h4>
@@ -73,10 +74,89 @@ export default function Invoice() {
 						<div className="section-invoice__div-info-container"><span>sales@hifi-horizon.com</span><HiMail className="section-invoice__container-svg" /></div>
 					</div>
 				</section>
-				<div className="section-invoice__div-invoice-items">
-					
+				<section className="section-invoice__sec-invoice-items">
+					<h3 className="section-invoice__sec-invoice-title">Invoice</h3>
+					<div className="section-invoice__sec-invoice-content">
+						<div className="section-invoice__sec-invoice-item">
+							<p>Order number</p>
+							<p>Date</p>
+							<p>Shop</p>
+							<p>Currency</p>
+						</div>
+						<div className="section-invoice__sec-invoice-item">
+							<p>238475691</p>
+							<p>march 14, 2022</p>
+							<p>342 HIFI Horizon - Falkirk</p>
+							<p>USD</p>
+						</div>
+					</div>
+				</section>
+
+				<div className="section-invoice__table-wrap">
+				<table className="section-invoice__table">
+					<thead>
+						<tr>
+							<th>
+								Item description
+							</th>
+							<th>
+								Price
+							</th>
+							<th>
+								Quantity
+							</th>
+							<th>
+								Total
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						{products.map((item, index) => {
+							return <tr key={item.name} className={index % 2 === 0 ? '' : 'tr-grey'}>
+								<td>{item.name}</td>
+								<td>${(item.price - item.price / 100 * item.discount).toFixed(2)}</td>
+								<td>{RetrieveCartItems()[index].split("-")[1]}</td>
+								<td>${((Number(item.price) * Number(RetrieveCartItems()[index].split("-")[1])).toFixed(2) - (Number(item.price) * Number(RetrieveCartItems()[index].split("-")[1])).toFixed(2) / 100 * item.discount).toFixed(2)}</td>
+							</tr>
+						})}
+					</tbody>
+				</table>
+
 				</div>
-				${totalPrice.toFixed(2)}
+
+				<div className="section-invoice__div-totals">
+					<div className="section-invoice__div-totals-item">
+						<p>SUBTOTAL:</p>
+						<p>VAT:</p>
+						<p>DELIVERY:</p>
+					</div>
+					<div className="section-invoice__div-totals-item">
+						<p>${totalPrice.toFixed(2)}</p>
+						<p>${vat}</p>
+						<p>${delivery}</p>
+					</div>
+				</div>
+
+				<div className="section-invoice__div-final-totals">
+					<div className="section-invoice__final-total">
+						<div className="section-invoice__div-totals-item">
+							<p>TOTAL</p>
+						</div>
+						<div className="section-invoice__div-totals-item">
+							<p>${(totalPrice + vat + delivery).toFixed(2)}</p>
+						</div>
+					</div>
+				</div>
+
+
+				<div className="section-invoice__extra-info">
+					<span className="section-invoice__extra-info-name">Adress: </span>
+					<span>44 Cow Wynd, Falkirk, Central Region, FK1 1PU</span>
+					<span className="section-invoice__extra-info-name">Phone: </span>
+					<span>0131 556 7901</span>
+					<span className="section-invoice__extra-info-name">Email: </span>
+					<span>sales@hifi-horizon.com</span>
+				</div>
 			</section>
 		</main>
 	)

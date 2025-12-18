@@ -1,8 +1,191 @@
 @use "variables" as var
 
 
-.cart-content__title-center
-    font-size: 26px
-    text-align: center
-    margin-bottom: 20px
-    color: var.$primary-grey-blue-color
+
+.invoice-content
+    margin: 3dvw
+    display: flex
+    flex-direction: column
+    align-items: center
+    
+    &__title-center
+        font-size: 26px
+        text-align: center
+        margin-bottom: 20px
+        color: var.$primary-grey-blue-color
+
+.section-invoice
+    max-width: 780px
+    margin: 3dvw
+    padding: 20px
+    background-color: var.$primary-white-color
+    box-shadow: 0 5px 7px var.$primary-shadow-color
+    overflow: visible
+
+    &__sec-info
+        display: flex
+        justify-content: space-between
+        flex-wrap: wrap
+        gap: 7px
+        margin-top: 10px
+
+    &__div-info-container
+        display: flex
+        align-items: center
+        gap: 10px
+
+    &__container-svg
+        width: 18px
+        height: 18px
+
+    &__div-info-left-item
+        display: flex
+        flex-direction: column
+        align-items: flex-end
+
+        & h4:last-of-type
+            margin-bottom: 10px
+
+    &__div-info-logo
+        width: 56px
+        height: auto
+        padding-bottom: 10px
+
+    &__container-svg
+        color: var.$primary-grey-blue-color
+
+    &__div-info-item-h3
+        font-size: 20px
+        text-transform: uppercase
+        font-weight: 600
+        margin-top: 30px
+        margin-bottom: 10px
+        color: var.$primary-grey-blue-color
+
+    &__sec-invoice-items
+        display: flex
+        flex-direction: column
+        gap: 15px
+        align-items: flex-end
+
+    &__sec-invoice-content
+        display: flex
+        gap: 50px
+
+    &__sec-invoice-title
+        font-size: 26px
+        color: var.$primary-grey-blue-color
+        border-bottom: 2px solid var.$primary-greyish-color
+        width: 330px
+
+    &__sec-invoice-item
+        font-weight: 300
+        display: flex
+        flex-direction: column
+        gap: 5px
+        margin-bottom: 40px
+
+    &__table-wrap
+        overflow-x: auto    
+        overflow-y: hidden
+        -webkit-overflow-scrolling: touch
+        width: 100%
+
+    &__table
+        width: 100%
+        border-collapse: collapse
+        margin-top: 20px
+        margin-bottom: 20px
+
+        th:first-of-type, td:first-of-type
+            text-align: left
+
+        th
+            text-align: center
+            padding: 0 30px
+            text-transform: uppercase
+            font-weight: 600
+            border-bottom: 2px solid var.$primary-greyish-color
+
+        td
+            text-align: center
+            font-weight: 400
+            padding: 10px
+
+    &__div-totals
+        margin-top: 200px
+        display: flex
+        justify-content: flex-end
+        gap: 210px
+
+    &__div-totals-item:last-of-type
+        text-align: right
+
+    &__div-final-totals
+        display: flex
+        justify-content: right
+        margin-top: 30px
+
+    &__final-total
+        display: flex
+        justify-content: space-between
+        width: 350px
+        padding: 10px 
+        background-color: var.$primary-grey-blue-color
+        color: var.$primary-white-color
+
+    &__extra-info
+        font-size: 12px
+        display: flex
+        justify-content: center
+        margin-top: 130px
+
+    &__extra-info-name
+        font-weight: 600
+        margin-right: 5px
+        padding-left: 5px
+        border-left: 1px solid var.$primary-black-color
+        margin-left: 5px
+
+    &__extra-info-name:first-of-type
+        border-left: none
+        padding-left: 0
+        margin-left: 0
+
+
+@media screen and (max-width: 745px)
+    .section-invoice
+        max-width: 350px
+
+        &__div-info-left-item
+            padding-top: 30px
+            align-items: flex-start
+
+        &__sec-invoice-title
+            margin-top: 50px
+            width: 100%
+
+        &__sec-invoice-content
+            gap: 20px
+
+        &__table
+            width: 780px
+
+        &__div-totals
+            margin-top: 50px
+            gap: 0
+            justify-content: space-between
+
+        &__final-total
+            width: 100%
+
+        &__extra-info
+            flex-direction: column
+            gap: 10px
+
+        &__extra-info-name
+            border-left: none
+            padding-left: 0
+            margin-left: 0
+    
+    
