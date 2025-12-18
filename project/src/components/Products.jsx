@@ -3,7 +3,7 @@ import { Link, useLoaderData, useOutletContext } from "react-router"
 import { GiSettingsKnobs } from "react-icons/gi"
 import { useEffect, useState } from "react"
 
-export default function Products({ brands, colors, min, max }) {
+export default function Products({ brands, colors, min, max, discount, param }) {
     const [items, setItems] = useOutletContext()
     const [cart, setCart] = useState([])
     const products = useLoaderData()
@@ -26,9 +26,11 @@ export default function Products({ brands, colors, min, max }) {
 
     function shouldShowProduct(product) {
         const discountedPrice = product.price - (product.price / 100) * product.discount
-        let priceMatch = discountedPrice >= min && discountedPrice <= max
+        let priceMatch = discountedPrice >= (min || 0) && discountedPrice <= (max || 99999)
+        let discountMatch = false
         let brandMatch = false
         let colorMatch = false
+        let paramMatch = true
 
         if (brands.length === 0) {
             brandMatch = true
@@ -36,6 +38,15 @@ export default function Products({ brands, colors, min, max }) {
 
         if (colors.length === 0) {
             colorMatch = true
+        }
+
+        if ((discount || 100) >= product.discount) {
+            discountMatch = true
+        }
+
+        if (param != "" && (product.name.toLowerCase().includes(param) ||
+            product.description.toLowerCase().includes(param)) === false) {
+            paramMatch = false
         }
 
         if (brands.length !== 0 || colors.length !== 0) {
@@ -52,18 +63,17 @@ export default function Products({ brands, colors, min, max }) {
             })
         }
 
-        if (priceMatch === false) {
-            brandMatch = false
-            colorMatch = false
-        } else if (brandMatch === false) {
-            colorMatch = false
-            priceMatch = false
-        } else if (colorMatch === false) {
+        if (priceMatch === false || brandMatch === false || colorMatch === false ||
+            discountMatch === false || paramMatch === false) {
+
             priceMatch = false
             brandMatch = false
+            colorMatch = false
+            paramMatch = false
+            discountMatch = false
         }
 
-        return brandMatch || colorMatch || priceMatch
+        return brandMatch || colorMatch || priceMatch || discountMatch || paramMatch
     }
 
     useEffect(() => {
@@ -73,29 +83,33 @@ export default function Products({ brands, colors, min, max }) {
     return (
         <section className="section-ctgrs__products-section">
             <ul className="section-ctgrs__products-ul">
-                {products.filter(shouldShowProduct).map((product) => {
-                    const discountedPrice = product.price - (product.price / 100) * product.discount
+                {products.filter(shouldShowProduct).length > 0 ? (
+                    products.filter(shouldShowProduct).map((product) => {
+                        const discountedPrice = product.price - (product.price / 100) * product.discount
 
-                    return <li key={`product-${product.name}`} className="section-ctgrs__products-li">
-                        <figure className="section-ctgrs__products-figure">
-                            <img src={`/images/${product.images[0]}`} alt={product.images[0]} className="section-ctgrs__products-img" />
-                        </figure>
-                        <h3 className="section-ctgrs__products-h3"><Link to={`/details/${product.id}`}>{product.name}</Link></h3>
-                        <p className="section-ctgrs__products-p">${discountedPrice.toFixed(2)} <span className="section-ctgrs__products-span">{product.price}</span></p>
-                        <div className="section-ctgrs__products-div-discount">{Math.round(product.discount)}%</div>
-                        <div className="section-ctgrs__products-div-action">
-                            {cart.indexOf(product.id) < 0 ? (
-                                <button className="section-ctgrs__products-link" onClick={() => addToCart(product)}>Add to cart</button>
-                            ) : (
-                                <Link className="section-ctgrs__products-link" to={`/details/${product.id}`}>Open Details</Link>
-                            )}
-                            <p className={`section-ctgrs__products-stock-status ${product.status != 0 ? "stock" : ""}`}>
-                                {(product.status != 0 ? "In stock" : "Out of stock")}
-                            </p>
-                        </div>
-                        <Link to={`/compare/${product.id}`} className="section-ctgrs__products-compare-link">Compare <GiSettingsKnobs /> </Link>
-                    </li>
-                })}
+                        return <li key={`product-${product.name}`} className="section-ctgrs__products-li">
+                            <figure className="section-ctgrs__products-figure">
+                                <img src={`/images/${product.images[0]}`} alt={product.images[0]} className="section-ctgrs__products-img" />
+                            </figure>
+                            <h3 className="section-ctgrs__products-h3"><Link to={`/details/${product.id}`}>{product.name}</Link></h3>
+                            <p className="section-ctgrs__products-p">${discountedPrice.toFixed(2)} <span className="section-ctgrs__products-span">{product.price}</span></p>
+                            <div className="section-ctgrs__products-div-discount">{Math.round(product.discount)}%</div>
+                            <div className="section-ctgrs__products-div-action">
+                                {cart.indexOf(product.id) < 0 ? (
+                                    <button className="section-ctgrs__products-link" onClick={() => addToCart(product)}>Add to cart</button>
+                                ) : (
+                                    <Link className="section-ctgrs__products-link" to={`/details/${product.id}`}>Open Details</Link>
+                                )}
+                                <p className={`section-ctgrs__products-stock-status ${product.status != 0 ? "stock" : ""}`}>
+                                    {(product.status != 0 ? "In stock" : "Out of stock")}
+                                </p>
+                            </div>
+                            <Link to={`/compare/${product.id}`} className="section-ctgrs__products-compare-link">Compare <GiSettingsKnobs /> </Link>
+                        </li>
+                    })
+                ) : (
+                    <li>Could not find any products here...</li>
+                )}
             </ul>
         </section>
     )
