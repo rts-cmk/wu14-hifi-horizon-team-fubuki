@@ -1,10 +1,12 @@
 import { LiaCookieSolid } from "react-icons/lia"
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router"
 import "../style/_terms.sass"
 
-export default function Terms() {
+export default function Terms({ forced = false, setForced }) {
 	const [cookiesAllowed, setCookiesAllowed] = useState(false)
 	const [showned, setShowned] = useState(false)
+	const navigate = useNavigate()
 
 	useEffect(() => {
 		if (document.cookie != "") {
@@ -16,18 +18,25 @@ export default function Terms() {
 
 	function denyCookies() {
 		setCookiesAllowed(false)
+		setShowned(false)
+
+		if (forced === true) {
+			setForced(false)
+			navigate("/")
+		}
 	}
 
 	function allowCookies() {
 		document.cookie = "cookies=true; path=/"
 		document.cookie = "cart=null; path=/"
 		setCookiesAllowed(true)
+		setShowned(false)
 	}
 
 	return (
 		<>
 			{
-				(cookiesAllowed === null && <dialog className="content-terms" open>
+				((cookiesAllowed === null || (forced === true && document.cookie == "")) && <dialog className="content-terms" open>
 					<style>{`body#root { overflow: hidden; }`}</style>
 					<div className="content-terms__holder">
 						<p className="content-terms__date">updated: 12/11/2025</p>
@@ -77,8 +86,11 @@ export default function Terms() {
 							{(showned === false && "Show All Terms" || "Hide All Terms")}
 						</button>
 						<div className="content-terms__buttons">
-							<button onClick={() => denyCookies()}
+							{forced === false && <button onClick={() => denyCookies()}
 								className="content-terms__button">Reject Cookies</button>
+								|| <button onClick={() => denyCookies()}
+									className="content-terms__button">Back to home</button>
+							}
 							<button onClick={() => allowCookies()}
 								className="content-terms__button orange">Accept Cookies</button>
 						</div>

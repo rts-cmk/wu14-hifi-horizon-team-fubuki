@@ -36,7 +36,7 @@ export default function CartItem({ item, idx, func, itemAMT = 1 }) {
 				<IoMdClose />
 			</button>
 			{item.images && <img className="cart-content__item-image"
-				src={`/image/${item.images[0]}`} alt={item.images[0]} />}
+				src={`/images/${item.images[0]}`} alt={item.images[0]} />}
 
 			<p className="cart-content__item-name">{item.name || "Loading Name"} <span
 				className={`cart-content__item-stock ${(item.stock !== 0 && "stock" || "")}`}>
