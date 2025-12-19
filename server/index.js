@@ -169,7 +169,7 @@ SERVER.post("/api/account/create", async (request, response) => {
 	}
 })
 
-SERVER.get("/api/account", (request, response) => {
+SERVER.get("/api/account", async (request, response) => {
 	const REQUEST_TYPE = request.get("request-type")
 	const ACCOUNTS = loadData("accounts")
 
@@ -220,7 +220,7 @@ SERVER.get("/api/account", (request, response) => {
 		} else {
 			const ACC = ACCOUNTS.find(acc => acc.email == EMAIL)
 
-			if (argon2.verify(ACC.password, PASSWORD, argonConfig)) {
+			if (!(await argon2.verify(ACC.password, PASSWORD, argonConfig))) {
 				response.status(401).json({ success: false, message: "account password does not match the password requested" })
 			} else {
 				response.status(202).json({
