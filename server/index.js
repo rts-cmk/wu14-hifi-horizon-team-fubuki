@@ -236,4 +236,4 @@ SERVER.get("/api/account", async (request, response) => {
 
 
 // RUNNER
-SERVER.listen(PORT, "0.0.0.0", () => console.log(`the server is now runnning on port ${PORT}.`))
+module.exports = SERVER;
