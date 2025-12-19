@@ -7,6 +7,7 @@ import { RetrieveCartItems } from "../helpers/cartHandler";
 
 export default function Layout() {
 	const [items, setItems] = useState(0)
+	const [forced, setForced] = useState(false)
 
 	useEffect(() => {
 		setItems(RetrieveCartItems().length)
@@ -15,9 +16,9 @@ export default function Layout() {
 	return (
 		<>
 			<Header items={items} />
-			<Outlet context={[items, setItems]} />
+			<Outlet context={[items, setItems, setForced]} />
 			<Footer />
-			<Terms />
+			<Terms forced={forced} setForced={setForced} />
 		</>
 	)
 }

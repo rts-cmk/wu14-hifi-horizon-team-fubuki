@@ -7,7 +7,7 @@ import { useEffect, useState } from "react"
 
 
 export default function ProductDetails() {
-	const [items, setItems] = useOutletContext()
+	const [items, setItems, forced] = useOutletContext()
 	const [amount, setAmount] = useState(1)
 	const [cart, setCart] = useState(false)
 	const [color, setColor] = useState(0)
