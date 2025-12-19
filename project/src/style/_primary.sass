@@ -1,5 +1,6 @@
 // STYLING FOR SECTIONS
 @use "./_variables.sass" as var
+@use 'sass:color'
 
 body#root
 	background: var.$primary-background-greyish-color
@@ -17,6 +18,34 @@ body#root
 			&-image
 				height: auto
 				width: 100dvw
+
+// ERROR PAGE
+.error-content
+	gap: 10px
+	display: flex
+	min-height: 400px
+	align-items: center
+	flex-direction: column
+	justify-content: center
+
+	&__button
+		cursor: pointer
+		border-radius: 5px
+		padding: 10px 25px
+		transition: background 0.25s
+		color: var.$primary-white-color
+		background: var.$primary-button-orange-color
+
+		&:hover
+			background: color.adjust(var.$primary-button-orange-color, $lightness: -5%)
+
+	&__title
+		font-size: 28px
+
+	&__image
+		width: 125px
+		height: auto
+		color: var.$primary-orange-color
 
 // PAGE ARTICLE
 .page-article
