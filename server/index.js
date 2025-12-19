@@ -2,6 +2,7 @@
 import express from "express"
 import cors from "cors"
 import fs from "fs"
+import path from "path"
 import argon2 from "argon2"
 import dotenv from "dotenv"
 const SERVER = express()
@@ -20,26 +21,23 @@ if (!process.env.SECRET_KEY) throw new Error("missing secret key")
 const argonConfig = {
 	secret: Buffer.from(process.env.SECRET_KEY)
 }
+
 // VALUES
 let accountIds = 1
 
 // FUNCTIONS
 function loadData(file = "products") {
-	return JSON.parse(fs.readFileSync(`./jsons/${file}.json`, "utf8"))
+	return JSON.parse(fs.readFileSync(path.join(__dirname, `./jsons/${file}.json`), "utf8"))
 }
 
 function saveData(data, file = "products") {
-	fs.writeFileSync(`./jsons/${file}.json`, JSON.stringify(data, null, 2))
+	fs.writeFileSync(path.join(__dirname, `./jsons/${file}.json`), JSON.stringify(data, null, 2))
 }
-
-
 
 // REDIRECTS AND OTHERS
 SERVER.use("/api", (request, response, next) => {
 	next()
 })
-
-
 
 // PATHS
 SERVER.get("/api", (request, response) => {
