@@ -54,6 +54,7 @@ Projektets struktur er opdelt i logiske mapper for bedre overblik:
  │    ├── Product.jsx
  │    ├── ProductDetails.jsx
  │    ├── ProductComparison.jsx
+ │    ├── MoreInfo.jsx
  │    ├── Cart.jsx
  │    ├── Payment.jsx
  │    ├── Invoice.jsx
