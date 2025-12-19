@@ -1,0 +1,442 @@
+[
+	{
+		"id": 1,
+		"price": 469,
+		"delivery": 0,
+		"discount": 8.53,
+		"brand": "Marantz",
+		"categorie": "AMPLIFIERS",
+		"stock": 2,
+		"images": [
+			"parasound_halod3.png",
+			"parasound_halop3.png"
+		],
+		"name": "MARANTZ PM6006 UK EDITION INTERGRATED AMPLIFIER",
+		"description": "The PM6006 is an upgraded successor of the multi-award-winning PM6005. Marantz retained the pre-amp and power-amp sections that exclusively feature discrete components - not a single IC in sight of the signal path. The PM6006 is upgraded for peak current at the amplifier stage, which makes it possible to refine the sound for you in much more detail.",
+		"fields": [
+			{
+				"type": "color",
+				"required": true,
+				"list": [
+					"Black",
+					"Silver"
+				]
+			}
+		],
+		"payments": [
+			"paypal"
+		],
+		"info": [
+			{
+				"url": null,
+				"title": "manufacturer",
+				"value": "Marantz"
+			},
+			{
+				"url": "https://www.marantz.com",
+				"title": "manufacturer link",
+				"value": "Marantz PM6006"
+			},
+			{
+				"url": null,
+				"title": "free warranty",
+				"value": "3 years"
+			},
+			{
+				"url": null,
+				"title": "delivery charge",
+				"value": "Free"
+			},
+			{
+				"url": null,
+				"title": "delivery time",
+				"value": "1 - 5 Working Days"
+			},
+			{
+				"url": null,
+				"title": "card surcharges",
+				"value": "No"
+			}
+		],
+		"information": [
+			{
+				"extra": false,
+				"title": "Power Output (8 / 4 Ohm RMS)",
+				"value": "45 W / 60 W",
+				"second": "10 Hz"
+			},
+			{
+				"extra": true,
+				"title": "Frequency Response",
+				"value": "",
+				"second": "70 kHz"
+			},
+			{
+				"extra": false,
+				"title": "Total Harmonic Distortion",
+				"value": "0.08%",
+				"second": ""
+			},
+			{
+				"extra": false,
+				"title": "Damping Factor",
+				"value": "100",
+				"second": ""
+			},
+			{
+				"extra": false,
+				"title": "Input Sensitivity: MM",
+				"value": "2.2 mV / 47 kOhm",
+				"second": ""
+			},
+			{
+				"extra": true,
+				"title": "Input Sensitivity: MC",
+				"value": "",
+				"second": ""
+			},
+			{
+				"extra": true,
+				"title": "Signal to Noise Ratio: MM / MC",
+				"value": "83 dB /",
+				"second": ""
+			},
+			{
+				"extra": false,
+				"title": "Input Sensitivity: High level",
+				"value": "200 mV / 20 kOhm",
+				"second": ""
+			},
+			{
+				"extra": true,
+				"title": "Input Sensitivity: Balanced High level",
+				"value": "",
+				"second": ""
+			},
+			{
+				"extra": false,
+				"title": "Signal to Noise Ratio: High level",
+				"value": "102dB(2V input)",
+				"second": ""
+			},
+			{
+				"extra": true,
+				"title": "Input Sensitivity: Power Amp Direct IN",
+				"value": "",
+				"second": ""
+			},
+			{
+				"extra": true,
+				"title": "Signal to Noise Ratio: Power Amp Direct IN",
+				"value": "",
+				"second": ""
+			}
+		],
+		"compare": [
+			1
+		]
+	},
+	{
+		"id": 2,
+		"price": 159,
+		"delivery": 0,
+		"discount": 5,
+		"brand": "SteelSeries",
+		"categorie": "HEADSETS",
+		"stock": 12,
+		"images": [
+			"steelseries_arctis_1.png",
+			"steelseries_arctis_2.png"
+		],
+		"name": "STEELSERIES ARCTIS 7 WIRELESS GAMING HEADSET",
+		"description": "The SteelSeries Arctis 7 delivers lag-free wireless audio, exceptional comfort, and a clear broadcast-quality microphone. Designed for long gaming sessions on PC, PlayStation, and more.",
+		"fields": [
+			{
+				"type": "color",
+				"required": true,
+				"list": [
+					"Black",
+					"White"
+				]
+			}
+		],
+		"payments": [
+			"paypal"
+		],
+		"info": [
+			{
+				"url": null,
+				"title": "manufacturer",
+				"value": "SteelSeries"
+			},
+			{
+				"url": "https://steelseries.com",
+				"title": "manufacturer link",
+				"value": "Arctis 7"
+			},
+			{
+				"url": null,
+				"title": "free warranty",
+				"value": "2 years"
+			},
+			{
+				"url": null,
+				"title": "delivery charge",
+				"value": "Free"
+			}
+		],
+		"information": [
+			{
+				"extra": false,
+				"title": "Connection Type",
+				"value": "Wireless (2.4GHz)",
+				"second": ""
+			},
+			{
+				"extra": false,
+				"title": "Battery Life",
+				"value": "24 hours",
+				"second": ""
+			},
+			{
+				"extra": false,
+				"title": "Microphone",
+				"value": "ClearCast",
+				"second": ""
+			},
+			{
+				"extra": true,
+				"title": "Compatibility",
+				"value": "PC / PlayStation",
+				"second": ""
+			}
+		],
+		"compare": [
+			1,
+			2
+		]
+	},
+	{
+		"id": 3,
+		"price": 99,
+		"delivery": 0,
+		"discount": 0,
+		"brand": "Logitech",
+		"categorie": "Mouse",
+		"stock": 25,
+		"images": [
+			"logitech_master_1.png",
+			"logitech_master_2.png"
+		],
+		"name": "LOGITECH MX MASTER 3S WIRELESS MOUSE",
+		"description": "The Logitech MX Master 3S is a premium wireless mouse with ultra-fast scrolling, ergonomic design, and silent clicks, perfect for productivity and creative work.",
+		"fields": [
+			{
+				"type": "color",
+				"required": true,
+				"list": [
+					"Black",
+					"Grey"
+				]
+			}
+		],
+		"payments": [
+			"paypal"
+		],
+		"info": [
+			{
+				"url": null,
+				"title": "manufacturer",
+				"value": "Logitech"
+			},
+			{
+				"url": "https://www.logitech.com",
+				"title": "manufacturer link",
+				"value": "MX Master 3S"
+			},
+			{
+				"url": null,
+				"title": "free warranty",
+				"value": "2 years"
+			}
+		],
+		"information": [
+			{
+				"extra": false,
+				"title": "Sensor",
+				"value": "8000 DPI",
+				"second": ""
+			},
+			{
+				"extra": false,
+				"title": "Buttons",
+				"value": "7",
+				"second": ""
+			},
+			{
+				"extra": false,
+				"title": "Connectivity",
+				"value": "Bluetooth / USB Receiver",
+				"second": ""
+			},
+			{
+				"extra": true,
+				"title": "Battery Type",
+				"value": "Rechargeable",
+				"second": ""
+			}
+		],
+		"compare": [
+			3
+		]
+	},
+	{
+		"id": 4,
+		"price": 1299,
+		"delivery": 0,
+		"discount": 7,
+		"brand": "Apple",
+		"categorie": "LAPTOPS",
+		"stock": 6,
+		"images": [
+			"macbook_air_1.png",
+			"macbook_air_2.png"
+		],
+		"name": "APPLE MACBOOK AIR M2",
+		"description": "The MacBook Air with M2 chip combines powerful performance with a thin and lightweight design. Ideal for work, study, and creative tasks.",
+		"fields": [
+			{
+				"type": "color",
+				"required": true,
+				"list": [
+					"Silver",
+					"Grey"
+				]
+			}
+		],
+		"payments": [
+			"paypal"
+		],
+		"info": [
+			{
+				"url": null,
+				"title": "manufacturer",
+				"value": "Apple"
+			},
+			{
+				"url": "https://www.apple.com",
+				"title": "manufacturer link",
+				"value": "MacBook Air M2"
+			},
+			{
+				"url": null,
+				"title": "free warranty",
+				"value": "1 year"
+			}
+		],
+		"information": [
+			{
+				"extra": false,
+				"title": "Processor",
+				"value": "Apple M2",
+				"second": ""
+			},
+			{
+				"extra": false,
+				"title": "Display",
+				"value": "13.6-inch Liquid Retina",
+				"second": ""
+			},
+			{
+				"extra": false,
+				"title": "RAM",
+				"value": "8 GB",
+				"second": ""
+			},
+			{
+				"extra": true,
+				"title": "Storage",
+				"value": "256 GB SSD",
+				"second": ""
+			}
+		],
+		"compare": [
+			4
+		]
+	},
+	{
+		"id": 5,
+		"price": 549,
+		"delivery": 0,
+		"discount": 10,
+		"brand": "Marantz",
+		"categorie": "AMPLIFIERS",
+		"stock": 4,
+		"images": [
+			"marantz_nr1200_1.png",
+			"marantz_nr1200_2.png"
+		],
+		"name": "MARANTZ NR1200 STEREO NETWORK RECEIVER",
+		"description": "The Marantz NR1200 is a slim stereo receiver with HDMI switching, HEOS multi-room streaming, and rich, detailed sound performance.",
+		"fields": [
+			{
+				"type": "color",
+				"required": true,
+				"list": [
+					"Black",
+					"Silver"
+				]
+			}
+		],
+		"payments": [
+			"paypal"
+		],
+		"info": [
+			{
+				"url": null,
+				"title": "manufacturer",
+				"value": "Marantz"
+			},
+			{
+				"url": "https://www.marantz.com",
+				"title": "manufacturer link",
+				"value": "NR1200"
+			},
+			{
+				"url": null,
+				"title": "free warranty",
+				"value": "3 years"
+			}
+		],
+		"information": [
+			{
+				"extra": false,
+				"title": "Power Output",
+				"value": "75 W per channel",
+				"second": ""
+			},
+			{
+				"extra": false,
+				"title": "HDMI Inputs",
+				"value": "5",
+				"second": ""
+			},
+			{
+				"extra": false,
+				"title": "Network Features",
+				"value": "HEOS / AirPlay 2",
+				"second": ""
+			},
+			{
+				"extra": true,
+				"title": "Voice Control",
+				"value": "Alexa / Google Assistant",
+				"second": ""
+			}
+		],
+		"compare": [
+			1,
+			5
+		]
+	}
+]

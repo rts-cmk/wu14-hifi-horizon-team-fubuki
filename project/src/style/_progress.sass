@@ -1,0 +1,50 @@
+// STYLING FOR PAYMENT PROGRESS COMPONENT
+@use "./_variables.sass" as var
+
+.payment-progress
+	width: 100%
+	height: 150px
+	position: relative
+
+	&__background
+		top: 50%
+		left: 50%
+		height: 35px
+		width: 350px
+		position: absolute
+		transform: translate(-50%, -50%)
+		background: var.$primary-white-color
+
+	&__step
+		width: 80px
+		height: 80px
+		display: flex
+		box-shadow: 2px 4px 4px 0px #00000025
+		background: var.$primary-light-grey-color
+
+		& a
+			width: inherit
+			height: inherit
+			display: inherit
+
+		& svg
+			width: auto
+			margin: auto
+			height: 26px
+			color: var.$primary-grey-blue-color
+
+		&.active
+			background: var.$primary-grey-blue-color
+
+			& svg
+				color: var.$primary-white-color
+
+		&s
+			top: 50%
+			left: 50%
+			width: 350px
+			display: flex
+			position: absolute
+			align-items: center
+			justify-content: space-between
+			transform: translate(-50%, -50%)
