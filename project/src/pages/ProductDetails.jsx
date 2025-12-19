@@ -141,12 +141,14 @@ export default function ProductDetails() {
 								className="product-content__amount-button"><IoMdAdd /></button>
 						</div>
 
-						{(cart === false ? <button onClick={() => addToCart()}
+						{(cart === false && document.cookie != "") ? <button onClick={() => addToCart()}
 							className={`product-content__button-order ${(productData.stock != 0 ? "stock" : "")}`}>Add to cart</button>
-							:
-							<button
-								className={`product-content__button-order`}>Already in cart</button>)
-
+							: (document.cookie === "") ?
+								<button
+									className={`product-content__button-order`}>Accept Cookies</button>
+								:
+								<button
+									className={`product-content__button-order`}>Already in cart</button>
 						}
 					</div>
 				</section>

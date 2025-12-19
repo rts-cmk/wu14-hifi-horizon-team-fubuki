@@ -15,8 +15,10 @@ export default function PaymentProgress({ currentStep = 1 }) {
 				</li>
 
 				<li className={`payment-progress__step step-two ${(currentStep === 2) ? 'active' : ''}`}>
-					<Link to="/cart/payment"><FaCreditCard className="payment-progress__icon" /></Link>
-
+					{(document.cookie != "" &&
+						<Link to="/cart/payment"><FaCreditCard className="payment-progress__icon" /></Link>
+						||
+						<FaCreditCard className="payment-progress__icon" />)}
 				</li>
 
 				<li className={`payment-progress__step step-three ${(currentStep === 3) ? 'active' : ''}`}>
