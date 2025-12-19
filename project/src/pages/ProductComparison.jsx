@@ -49,7 +49,7 @@ export default function ProductComparison() {
                   visibleProducts.map((product, index) => (
                     <td key={`${product.id}-${index}-1`} className="compare-section__thead-th">
                       <div className="compare-section__thead-th-content">
-                        <img src={`/images/${product.images[0]}`} alt={product.images[0]} className="compare-section__thead-th-img" />
+                        <img src={`/wu14-hifi-horizon-team-fubuki/images/${product.images[0]}`} alt={product.images[0]} className="compare-section__thead-th-img" />
                         <span className="compare-section__thead-th-span">{product.name}</span>
                       </div>
                     </td>

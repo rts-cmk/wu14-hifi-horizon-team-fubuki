@@ -75,7 +75,7 @@ export default function ProductDetails() {
 
 			<div className="product-content__holder">
 				<figure className="product-content__image-holder">
-					<img src={`/images/${productData.images[image]}`} alt={productData.images[image]}
+					<img src={`/wu14-hifi-horizon-team-fubuki/images/${productData.images[image]}`} alt={productData.images[image]}
 						className="product-content__image"></img>
 
 					<figcaption className="product-content__image-caption">

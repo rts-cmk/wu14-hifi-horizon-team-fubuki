@@ -89,13 +89,13 @@ export default function Products({ brands, colors, min, max, discount, param }) 
 
                         return <li key={`product-${product.name}`} className="section-ctgrs__products-li">
                             <figure className="section-ctgrs__products-figure">
-                                <img src={`/images/${product.images[0]}`} alt={product.images[0]} className="section-ctgrs__products-img" />
+                                <img src={`/wu14-hifi-horizon-team-fubuki/images/${product.images[0]}`} alt={product.images[0]} className="section-ctgrs__products-img" />
                             </figure>
                             <h3 className="section-ctgrs__products-h3"><Link to={`/details/${product.id}`}>{product.name}</Link></h3>
-                            <p className="section-ctgrs__products-p">${discountedPrice.toFixed(2)} {product.discount > 0 && <span className="section-ctgrs__products-span">{product.price}</span> } </p>
+                            <p className="section-ctgrs__products-p">${discountedPrice.toFixed(2)} {product.discount > 0 && <span className="section-ctgrs__products-span">{product.price}</span>} </p>
 
                             {product.discount > 0 && <div className="section-ctgrs__products-div-discount">{Math.round(product.discount)}%</div>}
-                            
+
                             <div className="section-ctgrs__products-div-action">
                                 {(cart.indexOf(product.id) < 0 && document.cookie != "") ? (
                                     <button className="section-ctgrs__products-link" onClick={() => addToCart(product)}>Add to cart</button>

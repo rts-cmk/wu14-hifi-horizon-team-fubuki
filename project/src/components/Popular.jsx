@@ -21,7 +21,7 @@ export default function Popular() {
 						return <li key={`popular-product-${product.name}`}
 							className="popular-section__product">
 							<figure className="popular-section__product-image-holder">
-								<img src={`/images/${product.images[0]}`} alt={product.images[0]}
+								<img src={`/wu14-hifi-horizon-team-fubuki/images/${product.images[0]}`} alt={product.images[0]}
 									className="popular-section__product-image"></img>
 							</figure>
 
