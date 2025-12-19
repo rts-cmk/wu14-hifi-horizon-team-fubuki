@@ -3,7 +3,7 @@ export default async function compareLoader({ params }) {
         return []
     } else {
         try {
-            const response = await fetch(`http://localhost:3000/api/compare/${params.id}`)
+            const response = await fetch(`https://superb-jelly-27600d.netlify.app/api/compare/${params.id}`)
             const data = await response.json()
 
             return data.result

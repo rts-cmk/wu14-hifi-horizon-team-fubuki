@@ -2,7 +2,7 @@ export default async function dataLoader() {
 	let fetchedData = {}
 
 	try {
-		await fetch("http://localhost:3000/api/products")
+		await fetch("https://superb-jelly-27600d.netlify.app/api/products")
 			.then(response => response.json())
 			.then(data => {
 				fetchedData = data.result

@@ -8,7 +8,7 @@ export default function CreateAccount() {
 
         if (event.target.password.value === event.target["repeat-password"].value) {
 
-            fetch("http://localhost:3000/api/account/create", {
+            fetch("https://superb-jelly-27600d.netlify.app/api/account/create", {
                 method: "POST",
                 headers: {
                     "name": event.target.name.value,

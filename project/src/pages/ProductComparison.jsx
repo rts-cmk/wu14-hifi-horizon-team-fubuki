@@ -13,7 +13,7 @@ export default function ProductComparison() {
       var promises = []
 
       compareIds.forEach(id => {
-        const promise = fetch(`http://localhost:3000/api/product/${id}`).then(res => res.json())
+        const promise = fetch(`https://superb-jelly-27600d.netlify.app/api/product/${id}`).then(res => res.json())
         promises.push(promise)
 
       })

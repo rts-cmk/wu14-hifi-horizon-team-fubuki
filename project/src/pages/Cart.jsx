@@ -15,7 +15,7 @@ export default function Cart({ items, setItems }) {
 			var promises = []
 
 			RetrieveCartItems().forEach(item => {
-				const promise = fetch(`http://localhost:3000/api/product/${item.split("-")[0]}`).then(res => res.json())
+				const promise = fetch(`https://superb-jelly-27600d.netlify.app/api/product/${item.split("-")[0]}`).then(res => res.json())
 				promises.push(promise)
 			})
 

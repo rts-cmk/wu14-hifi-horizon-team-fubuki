@@ -6,7 +6,7 @@ export default async function profileLoader() {
 			return { login: false, account: {} }
 		}
 
-		const response = await fetch("http://localhost:3000/api/account", {
+		const response = await fetch("https://superb-jelly-27600d.netlify.app/api/account", {
 			headers: {
 				"request-type": "info",
 				"request-key": findCookie("login", false) || ""
