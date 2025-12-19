@@ -2,11 +2,12 @@
 import express from "express"
 import cors from "cors"
 import fs from "fs"
-
+import argon2 from "argon2"
+import dotenv from "dotenv"
 const SERVER = express()
 const PORT = process.env.PORT || 3000
 
-
+dotenv.config()
 
 // SERVER USES
 SERVER.use(cors())
@@ -14,7 +15,11 @@ SERVER.use(express.json())
 SERVER.use(express.static("public"))
 SERVER.use(express.urlencoded({ extended: true }))
 
-
+// CONFIG
+if (!process.env.SECRET_KEY) throw new Error("missing secret key")
+const argonConfig = {
+	secret: Buffer.from(process.env.SECRET_KEY)
+}
 // VALUES
 let accountIds = 1
 
@@ -108,7 +113,7 @@ SERVER.get("/api/compare/:id", (request, response) => {
 	}
 })
 
-SERVER.post("/api/account/create", (request, response) => {
+SERVER.post("/api/account/create", async (request, response) => {
 	const SECOND_ADDRESS = request.get("address2")
 	const STREET = request.get("street") || ""
 	const HOUSE = request.get("house") || 0
@@ -132,10 +137,12 @@ SERVER.post("/api/account/create", (request, response) => {
 
 			const AUTH_KEY = crypto.randomUUID()
 
+			const hashedPassword = await argon2.hash(PASS, argonConfig);
+
 			accounts.push({
 				"id": accountIds,
 				"email": EMAIL,
-				"password": PASSWORD,
+				"password": hashedPassword,
 				"name": NAME,
 				"phone": PHONE,
 				"auth": AUTH_KEY,
@@ -162,7 +169,7 @@ SERVER.post("/api/account/create", (request, response) => {
 	}
 })
 
-SERVER.get("/api/account", (request, response) => {
+SERVER.get("/api/account", async (request, response) => {
 	const REQUEST_TYPE = request.get("request-type")
 	const ACCOUNTS = loadData("accounts")
 
@@ -213,7 +220,7 @@ SERVER.get("/api/account", (request, response) => {
 		} else {
 			const ACC = ACCOUNTS.find(acc => acc.email == EMAIL)
 
-			if (ACC.password !== PASSWORD) {
+			if (!(await argon2.verify(ACC.password, PASSWORD, argonConfig))) {
 				response.status(401).json({ success: false, message: "account password does not match the password requested" })
 			} else {
 				response.status(202).json({

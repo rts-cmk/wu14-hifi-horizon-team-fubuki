@@ -97,7 +97,7 @@ export default function Products({ brands, colors, min, max, discount, param }) 
                             {product.discount > 0 && <div className="section-ctgrs__products-div-discount">{Math.round(product.discount)}%</div>}
                             
                             <div className="section-ctgrs__products-div-action">
-                                {cart.indexOf(product.id) < 0 ? (
+                                {(cart.indexOf(product.id) < 0 && document.cookie != "") ? (
                                     <button className="section-ctgrs__products-link" onClick={() => addToCart(product)}>Add to cart</button>
                                 ) : (
                                     <Link className="section-ctgrs__products-link" to={`/details/${product.id}`}>Open Details</Link>
