@@ -6,7 +6,7 @@ export default function LoginAccount() {
     async function beginLogin(event) {
         event.preventDefault()
 
-        fetch("http://localhost:3000/api/account", {
+        fetch("https://superb-jelly-27600d.netlify.app/api/account", {
             headers: {
                 "request-type": "login",
                 "email": event.target.email.value,

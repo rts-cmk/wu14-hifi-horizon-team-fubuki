@@ -27,7 +27,7 @@ export default function Invoice() {
 			var promises = []
 
 			RetrieveCartItems().forEach(item => {
-				const promise = fetch(`http://localhost:3000/api/product/${item.split("-")[0]}`).then(res => res.json())
+				const promise = fetch(`https://superb-jelly-27600d.netlify.app/api/product/${item.split("-")[0]}`).then(res => res.json())
 				promises.push(promise)
 			})
 
@@ -103,34 +103,34 @@ export default function Invoice() {
 				</section>
 
 				<div className="section-invoice__table-wrap">
-				<table className="section-invoice__table">
-					<thead>
-						<tr>
-							<th>
-								Item description
-							</th>
-							<th>
-								Price
-							</th>
-							<th>
-								Quantity
-							</th>
-							<th>
-								Total
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						{products.map((item, index) => {
-							return <tr key={item.name} className={index % 2 === 0 ? '' : 'tr-grey'}>
-								<td>{item.name}</td>
-								<td>${(item.price - item.price / 100 * item.discount).toFixed(2)}</td>
-								<td>{RetrieveCartItems()[index].split("-")[1]}</td>
-								<td>${((Number(item.price) * Number(RetrieveCartItems()[index].split("-")[1])).toFixed(2) - (Number(item.price) * Number(RetrieveCartItems()[index].split("-")[1])).toFixed(2) / 100 * item.discount).toFixed(2)}</td>
+					<table className="section-invoice__table">
+						<thead>
+							<tr>
+								<th>
+									Item description
+								</th>
+								<th>
+									Price
+								</th>
+								<th>
+									Quantity
+								</th>
+								<th>
+									Total
+								</th>
 							</tr>
-						})}
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
+							{products.map((item, index) => {
+								return <tr key={item.name} className={index % 2 === 0 ? '' : 'tr-grey'}>
+									<td>{item.name}</td>
+									<td>${(item.price - item.price / 100 * item.discount).toFixed(2)}</td>
+									<td>{RetrieveCartItems()[index].split("-")[1]}</td>
+									<td>${((Number(item.price) * Number(RetrieveCartItems()[index].split("-")[1])).toFixed(2) - (Number(item.price) * Number(RetrieveCartItems()[index].split("-")[1])).toFixed(2) / 100 * item.discount).toFixed(2)}</td>
+								</tr>
+							})}
+						</tbody>
+					</table>
 
 				</div>
 

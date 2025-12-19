@@ -3,7 +3,7 @@ export default async function productLoader({ params }) {
 		return {}
 	} else {
 		try {
-			const response = await fetch(`http://localhost:3000/api/product/${params.product}`)
+			const response = await fetch(`https://superb-jelly-27600d.netlify.app/api/product/${params.product}`)
 			const data = await response.json()
 
 			return data
