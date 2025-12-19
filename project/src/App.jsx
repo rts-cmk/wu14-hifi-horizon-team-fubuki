@@ -91,7 +91,7 @@ function App() {
 
 			]
 		}
-	], { basename: "/" })
+	], { basename: "/wu14-hifi-horizon-team-fubuki/" })
 
 	return (
 		<RouterProvider router={browserRouter} />
