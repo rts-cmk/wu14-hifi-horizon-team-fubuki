@@ -1,5 +1,6 @@
 [build]
-  functions = "server"
+  base = "server"
+  functions = "functions"
   command = "npm install"
 
 [[redirects]]
