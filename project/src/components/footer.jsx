@@ -14,10 +14,10 @@ export default function Footer() {
 				</div>
 
 				<div className="footer__div-links">
-					<Link to="/">Returns & Refunds</Link>
-					<Link to="/">Delivery</Link>
-					<Link to="/">Privacy Policy</Link>
-					<Link to="/">Terms & Conditions</Link>
+					<Link to="/info#returns">Returns & Refunds</Link>
+					<Link to="/info#delivery">Delivery</Link>
+					<Link to="/info#terms">Privacy Policy</Link>
+					<Link to="/info#terms">Terms & Conditions</Link>
 				</div>
 				<div className="footer__div-links">
 					<Link to="/contact">CONTACT</Link>
