@@ -135,7 +135,7 @@ SERVER.post("/api/account/create", (request, response) => {
 			accounts.push({
 				"id": accountIds,
 				"email": EMAIL,
-				"password": PASSWORD,
+				"password": PASS,
 				"name": NAME,
 				"phone": PHONE,
 				"auth": AUTH_KEY,
