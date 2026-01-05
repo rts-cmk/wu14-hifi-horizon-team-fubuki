@@ -5,7 +5,7 @@ export default function AboutUs() {
       <article className="article-about-us">
         <section className="article-about-us__section">
           <figure className="article-about-us__figure">
-            <img className="article-about-us__figure-img" src="../images/about-us1.png" alt="About Us" />
+            <img className="article-about-us__figure-img" src="./images/about-us1.png" alt="About Us" />
           </figure>
           <div className="article-about-us__div-content">
             <h2 className="article-about-us__h2-content">History</h2>
@@ -45,12 +45,12 @@ export default function AboutUs() {
             </p>
           </div>
           <figure className="article-about-us__figure">
-            <img className="article-about-us__figure-img" src="../images/about-us2.png" alt="About Us" />
+            <img className="article-about-us__figure-img" src="./images/about-us2.png" alt="About Us" />
           </figure>
         </section>
         <section className="article-about-us__section">
           <figure className="article-about-us__figure">
-            <img className="article-about-us__figure-img" src="../images/about-us3.png" alt="About Us" />
+            <img className="article-about-us__figure-img" src="./images/about-us3.png" alt="About Us" />
           </figure>
           <div className="article-about-us__div-content">
             <h2 className="article-about-us__h2-content">Services</h2>
@@ -64,11 +64,11 @@ export default function AboutUs() {
               or sell your old kit on your behalf.
             </p>
             <p className="article-about-us__p-content">
-              <span className="article-about-us__span-content">Turntable Doctor</span> – Our turntable experts have been trained by the manufacturers for initial setup, long-term 
+              <span className="article-about-us__span-content">Turntable Doctor</span> – Our turntable experts have been trained by the manufacturers for initial setup, long-term
               maintenance, and upgrading your high quality turntables.
             </p>
             <p className="article-about-us__p-content">
-              <span className="article-about-us__span-content">Record Cleaning Service</span> – Have some old records that need a bit of love? We offer Scotland’s very own professional 
+              <span className="article-about-us__span-content">Record Cleaning Service</span> – Have some old records that need a bit of love? We offer Scotland’s very own professional
               record cleaning service with our bespoke Pro-Ject record cleaner.
             </p>
           </div>
@@ -78,21 +78,21 @@ export default function AboutUs() {
             <h2 className="article-about-us__h2-content">Tailored For You</h2>
             <h3 className="article-about-us__h3-content">We look forward to customising a system to meet your needs.</h3>
             <p className="article-about-us__p-content">
-              We don’t favour one manufacturer over another – the only thing we do favour is making sure our customers 
-              get the right product that suits their needs and listening preferences. We will ask many questions in 
-              order to ensure that what you buy from us is tailored to you and you alone. 
+              We don’t favour one manufacturer over another – the only thing we do favour is making sure our customers
+              get the right product that suits their needs and listening preferences. We will ask many questions in
+              order to ensure that what you buy from us is tailored to you and you alone.
             </p>
             <p className="article-about-us__p-content">
-              If you are looking for a product not found in our demonstration showrooms or our online site, don’t 
+              If you are looking for a product not found in our demonstration showrooms or our online site, don’t
               fret as we have access to hundreds of brands.
             </p>
             <p className="article-about-us__p-content">
-              One of our biggest pleasures of working in this industry is to see the smile on our customers’ 
-              faces when they finally hear and see the system of their dreams. 
+              One of our biggest pleasures of working in this industry is to see the smile on our customers’
+              faces when they finally hear and see the system of their dreams.
             </p>
           </div>
           <figure className="article-about-us__figure">
-            <img className="article-about-us__figure-img" src="../images/about-us4.png" alt="About Us" />
+            <img className="article-about-us__figure-img" src="./images/about-us4.png" alt="About Us" />
           </figure>
         </section>
       </article>
