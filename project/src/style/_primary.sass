@@ -1,0 +1,105 @@
+// STYLING FOR SECTIONS
+@use "./_variables.sass" as var
+@use 'sass:color'
+
+body#root
+	background: var.$primary-background-greyish-color
+
+	& .main-content__welcome-image
+		width: 100dvw
+		height: 80dvw
+		min-height: 400px
+		max-height: 635px
+		background-size: cover
+		background-repeat: no-repeat
+		background-image: url("/wu14-hifi-horizon-team-fubuki/images/primary.jpg")
+
+		@media screen and (min-width: 1250px)
+			&-image
+				height: auto
+				width: 100dvw
+
+// ERROR PAGE
+.error-content
+	gap: 10px
+	display: flex
+	min-height: 400px
+	align-items: center
+	flex-direction: column
+	justify-content: center
+
+	&__button
+		cursor: pointer
+		border-radius: 5px
+		padding: 10px 25px
+		transition: background 0.25s
+		color: var.$primary-white-color
+		background: var.$primary-button-orange-color
+
+		&:hover
+			background: color.adjust(var.$primary-button-orange-color, $lightness: -5%)
+
+	&__title
+		font-size: 28px
+
+	&__image
+		width: 125px
+		height: auto
+		color: var.$primary-orange-color
+
+// FAQ
+.article-faq
+	margin: 0 3dvw 3dvw
+	padding: 2rem
+	background-color: var.$primary-white-color
+	box-shadow: 0 5px 7px var.$primary-shadow-color
+
+	&__text
+		margin-bottom: 25px
+
+		& span
+			display: block
+
+	&__first
+		font-size: 24px
+		margin-bottom: 25px
+
+// PAGE ARTICLE
+.page-article
+	position: relative
+	padding: 100px 3dvw
+	color: var.$primary-light-grey-color
+	background: var.$background-black-color
+
+	&__text
+		margin-top: 25px
+
+	&>p,&>h1
+		width: 47dvw
+		min-width: 300px
+
+	&__section
+		top: 100px
+		right: 3dvw
+		width: 300px
+		position: absolute
+
+		&-text
+			display: flex
+			min-width: 300px
+			margin-top: 40px
+			flex-direction: column
+
+			&:last-of-type
+				margin-top: 20px
+
+			& .bold
+				font-weight: bold
+
+@media screen and (max-width: 768px)
+	.page-article
+		padding: 100px 10dvw
+
+		&__section
+			position: unset
+			margin-top: 50px

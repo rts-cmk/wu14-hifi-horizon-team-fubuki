@@ -1,0 +1,209 @@
+@use "variables" as var
+@use 'sass:color'
+
+.section-ctgrs
+    display: flex
+    min-height: 610px
+
+    &__aside
+        display: flex
+        flex-direction: column
+        min-width: 325px
+        gap: 1rem
+        padding: 30px
+
+    &__details
+        background-color: var.$primary-light-grey-color
+
+    &__summary
+        list-style: none
+        display: flex
+        justify-content: space-between
+        align-items: center
+        box-shadow: 0 3px 5px var.$primary-shadow-color
+        padding: 0.2rem
+        font-size: 16px
+
+    &__summary-svg
+        font-size: 16px
+        transform: rotate(-180deg)
+        transition: transform 0.3s ease
+
+    &__details[open] .section-ctgrs__summary-svg
+        transform: rotate(0deg)
+
+    &__h2
+        font-size: 20px
+        font-weight: 400
+
+    &__title
+        gap: 10px
+        display: flex
+        flex-wrap: wrap
+        font-size: 48px
+        padding: 40px 20px
+        align-items: center
+        justify-content: space-between
+        color: var.$primary-grey-blue-color
+
+    &__nothing-product > p
+        padding: 30px
+
+    &__search
+        color: black
+        font-size: 16px
+        font-weight: normal
+
+        &-content
+            font-weight: bold
+            text-decoration: underline
+
+    &__div
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding: 0.25rem
+        font-size: 14px
+
+    &__div:last-of-type
+        padding-bottom: 1rem
+
+    &__div:first-of-type
+        padding-top: 1rem
+
+    &__div-input
+        appearance: none
+        -webkit-appearance: none
+        width: 20px
+        height: 20px
+        background-color: var.$primary-white-color
+        border-radius: 50%
+        cursor: pointer
+        position: relative
+        transition: all .25s ease
+
+    &__div-input::before
+        content: ""
+        position: absolute
+        top: 2px
+        left: 6px
+        width: 7px
+        height: 11px
+
+        border-right: 2px solid green
+        border-bottom: 2px solid green
+        transform: rotate(45deg)
+        opacity: 0
+
+    &__div-input:checked::before
+        opacity: 1
+
+    &__products-section
+        width: 100%
+        margin-bottom: 2rem
+
+    &__products-ul
+        width: 100%
+        display: flex
+        flex-wrap: wrap
+        gap: 2rem
+
+    &__products-li
+        position: relative
+        overflow: hidden
+        background-color: var.$primary-white-color
+        box-shadow: 0 3px 5px var.$primary-shadow-color
+        border-radius: 5px
+        width: 250px
+        height: 380px
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: space-between
+        padding: 1rem
+
+    &__products-div-discount
+        position: absolute
+        top: 10px
+        left: -30px
+        background-color: var.$primary-orange-color
+        color: var.$primary-white-color
+        padding: 5px 40px
+        font-size: 14px
+        font-weight: 700
+        transform: rotate(-45deg)
+
+    &__products-span
+        font-size: 16px
+        font-weight: 500
+        color: var.$primary-greyish-color
+        text-decoration: line-through
+
+    &__products-h3
+        font-size: 14px
+        text-align: center
+        font-weight: 500
+
+    &__products-p
+        font-size: 16px
+        font-weight: 650
+
+    &__products-figure
+        height: 150px
+        max-width: 80%
+        display: inherit
+        padding-top: 25px
+        align-items: center
+        justify-content: center
+
+    &__products-img
+        max-width: 175px
+        max-height: 125px
+
+    &__products-div-action
+        width: 100%
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding-right: 7px
+
+    &__products-link
+        color: var.$primary-white-color
+        background: var.$primary-button-orange-color
+        box-shadow: 0 3px 5px var.$primary-shadow-color
+        padding: 8px 20px
+        border-radius: 3px
+        font-size: 14px
+        border: none
+        cursor: pointer
+        transition: background 0.25s ease
+
+        &:hover
+            background: color.adjust(var.$primary-button-orange-color, $lightness: -5%)
+
+    &__products-stock-status
+
+        &::after
+            width: 15px
+            height: 15px
+            content: ""
+            background: red
+            border-radius: 100px
+            display: inline-block
+            transform: translate(50%, 16%)
+
+        &.stock::after
+            background: #008000
+
+    &__products-compare-link
+        position: absolute
+        right: 10px
+        top: 10px
+
+@media screen and (max-width: 768px)
+    .section-ctgrs
+        flex-wrap: wrap
+        justify-content: center
+
+        .section-ctgrs__products-ul
+            justify-content: center

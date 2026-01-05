@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "email": "abc@d.ca",
+    "password": "$argon2id$v=19$m=65536,t=3,p=4$1lzTfov2zCvJe5pW0Gb0pw$/zCZYe0J7H+QBi6yJ/ebP0jpROhfpLkhZT2HTG695sk",
+    "name": "<script defer>alert(\"hello world\")</script>",
+    "phone": "1",
+    "auth": "def3be0d-1c93-4f31-aaeb-2c07043938d3",
+    "address": {
+      "city": "da",
+      "street": "",
+      "number": 0,
+      "zip": "3",
+      "country": "sss"
+    },
+    "orders": []
+  }
+]
